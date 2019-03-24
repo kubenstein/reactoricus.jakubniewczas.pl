@@ -1,0 +1,21 @@
+:global {
+  .btn {
+    display: inline-block;
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 7px 15px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid transparent !important;
+    background-color: $main;
+    color: $white;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+
+    &:hover {
+      background-color: $main-hover;
+    }
+  }
+}

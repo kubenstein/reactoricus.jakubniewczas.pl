@@ -1,5 +1,7 @@
 import 'es6-promise/auto';
+
 import 'index.html';
+import 'assets/stylesheets/styles.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
