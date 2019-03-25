@@ -1,0 +1,62 @@
+@import "../../assets/stylesheets/import";
+
+@keyframes move {
+  0% {
+    transform: translateY(10px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+.wrapper {
+  height: 400px;
+  width: 100%;
+  background-color: $black;
+  margin-bottom: 40px;
+}
+
+.box-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1024px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.box {
+  max-width: 540px;
+  margin: 0 10px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: $white;
+
+  h1 {
+    font-size: 50px;
+    font-weight: 100;
+    color: $main;
+  }
+
+  h2 {
+    font-size: 30px;
+    font-weight: 100;
+  }
+
+  span {
+    font-size: 20px;
+  }
+}
+
+.robot {
+  flex: 0 0 240px;
+  height: 302px;
+  background: url('../../assets/images/reactoricus-jumbo.png') 50% 50% no-repeat;
+  animation: move 5s ease-in-out infinite;
+}

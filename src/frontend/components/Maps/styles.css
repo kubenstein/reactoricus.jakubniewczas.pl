@@ -1,0 +1,85 @@
+@import "../../assets/stylesheets/import";
+
+.wrapper {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+
+  strong {
+    color: $main;
+  }
+}
+
+.separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  color: $main;
+
+  &::before {
+    content: "";
+    flex-grow: 1;
+    max-width: 100px;
+    height: 1px;
+    margin-right: 5px;
+    background-color: $main;
+  }
+
+  &::after {
+    content: "";
+    flex-grow: 1;
+    max-width: 100px;
+    height: 1px;
+    margin-left: 5px;
+    background-color: $main;
+  }
+}
+
+.maps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.map {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 60px;
+  border: 5px solid $grey-light;
+  transition: border-color 0.5s;
+
+  &:hover {
+    border-color: $grey;
+  }
+
+  a {
+    display: block;
+  }
+
+  img {
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: $grey-light;
+  }
+
+  .created-at {
+    font-size: 12px;
+  }
+
+  .heartOn {
+    position: relative;
+    display: inline-block;
+    top: 2px;
+    margin-right: 4px;
+    line-height: 0px;
+    font-size: 23px;
+    color: $radical-red-light;
+  }
+}

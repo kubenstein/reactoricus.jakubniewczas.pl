@@ -2,7 +2,11 @@
 $radical-red: #FF436E;
 $radical-red-light: #FF83A0;
 $white: white;
-$grey: #e3e3e3;
+$grey: grey;
+$grey-light: #e3e3e3;
+$dark: #666;
+$black: #242730;
 
 $main: $radical-red;
 $main-hover: $radical-red-light;
+$main-text: $dark;
