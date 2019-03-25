@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import MapHeader from 'components/MapHeader';
+import Footer from 'components/Footer';
 import FunctionLink from 'components/FunctionLink';
 import './styles.css';
 
@@ -33,6 +34,7 @@ const Maps = ({ onClick, maps }) => {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 };
