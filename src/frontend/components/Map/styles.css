@@ -1,0 +1,39 @@
+@import "../../assets/stylesheets/import";
+
+.map {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 60px;
+  border: 5px solid $grey-light;
+  transition: border-color 0.5s;
+
+  &:hover {
+    border-color: $grey;
+  }
+
+  img {
+    cursor: pointer;
+    width: 100%;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  color: $grey-light;
+}
+
+.createdAt {
+  font-size: 12px;
+}
+
+.heartOn {
+  position: relative;
+  display: inline-block;
+  top: 2px;
+  margin-right: 4px;
+  line-height: 0px;
+  font-size: 23px;
+  color: $radical-red-light;
+}

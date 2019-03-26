@@ -20,7 +20,6 @@ const mapStateToProps = (_state, _props, _updateState) => ({
       played: 124,
     },
   ],
-  onClick: () => console.log('onClick'),
 });
 
 export default connect(mapStateToProps)(Component);

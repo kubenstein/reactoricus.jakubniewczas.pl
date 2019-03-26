@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import MapHeader from 'components/MapHeader';
+import Map from 'components/Map';
 import Footer from 'components/Footer';
-import FunctionLink from 'components/FunctionLink';
 import './styles.css';
 
-const Maps = ({ onClick, maps }) => {
+const Maps = ({ maps }) => {
   return (
     <>
       <MapHeader />
@@ -18,19 +18,8 @@ const Maps = ({ onClick, maps }) => {
         </p>
         <span styleName="separator">Choose the map you want to play on!</span>
         <div styleName="maps">
-          {maps.map(({ id, createdAt, played }) => (
-            <div styleName="map" key={id}>
-              <FunctionLink onClick={() => onClick(id)}>
-                <img alt="map preview" src="https://via.placeholder.com/430x430" />
-              </FunctionLink>
-              <div styleName="info">
-                <small styleName="created-at">{`added: ${createdAt}`}</small>
-                <small>
-                  <FunctionLink styleName="heartOn">❤</FunctionLink>
-                  {played}
-                </small>
-              </div>
-            </div>
+          {maps.map(map => (
+            <Map key={map.id} map={map} />
           ))}
         </div>
       </div>
@@ -40,7 +29,6 @@ const Maps = ({ onClick, maps }) => {
 };
 
 Maps.propTypes = {
-  onClick: PropTypes.func.isRequired,
   maps: PropTypes.arrayOf(PropTypes.any), // add map shape
 };
 

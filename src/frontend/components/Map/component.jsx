@@ -1,0 +1,29 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import FunctionLink from 'components/FunctionLink';
+import './styles.css';
+
+const Map = ({ onClick, map: { createdAt, played } }) => {
+  return (
+    <div styleName="map">
+      <FunctionLink onClick={onClick}>
+        <img alt="map preview" src="https://via.placeholder.com/430x430" />
+      </FunctionLink>
+      <div styleName="info">
+        <small styleName="createdAt">{`added: ${createdAt}`}</small>
+        <small>
+          <span styleName="heartOn">❤</span>
+          {played}
+        </small>
+      </div>
+    </div>
+  );
+};
+
+Map.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  map: PropTypes.any, // add map shape
+};
+
+export default Map;
