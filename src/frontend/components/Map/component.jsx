@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import FunctionLink from 'components/FunctionLink';
+import GameModal from 'components/GameModal';
+
 import './styles.css';
 
-const Map = ({ isOpen, onClick, map: { createdAt, played } }) => (
+const Map = ({ isOpen, onClick, map, map: { createdAt, played } }) => (
   <>
-    {isOpen && <div>The Game</div>}
+    {isOpen && <GameModal map={map} />}
     <div styleName="map">
       <FunctionLink onClick={onClick}>
         <img alt="map preview" src="https://via.placeholder.com/430x430" />

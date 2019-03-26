@@ -1,0 +1,48 @@
+@import "../../assets/stylesheets/import";
+
+:global {
+  body.gameModalOpened {
+    overflow: hidden;
+  }
+}
+
+.gameModal {
+  position: fixed;
+  display: flex;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  background-color: $white;
+  z-index: 1000;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 30px;
+  padding: 0 10px;
+  line-height: 30px;
+  font-size: 40px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.unityPlayer {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 900px;
+  border: 1px solid $grey;
+}
+
+.movementEditor {
+  flex: 0 0 200px;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 20px;
+  border: 1px solid $grey;
+}
