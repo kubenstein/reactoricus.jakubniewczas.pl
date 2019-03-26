@@ -2,8 +2,9 @@ import connect from 'lib/appState/connect';
 
 import Component from './component';
 
-const mapStateToProps = (_state, _props, _updateState) => ({
-  onClick: () => console.log('onClick'),
+const mapStateToProps = ({ openedMapId }, { map: { id } }, updateState) => ({
+  isOpen: openedMapId === id,
+  onClick: () => updateState({ openedMapId: id }),
 });
 
 export default connect(mapStateToProps)(Component);
