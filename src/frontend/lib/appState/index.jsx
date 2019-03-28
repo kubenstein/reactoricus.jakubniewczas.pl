@@ -5,7 +5,7 @@ const Context = React.createContext();
 
 const StateConsumer = Context.Consumer;
 
-const StateProvider = ({ children, initialState }) => {
+const StateProvider = ({ children, initialState = {} }) => {
   const [state, setState] = useState(initialState);
 
   const context = {
