@@ -33,3 +33,9 @@ export const removeStep = ({ algorythm, step }) => {
   return newAlgorythm;
 };
 
+export const updateLoopIterations = ({ algorythm, step, iterations }) => {
+  const newAlgorythm = deepCopy(algorythm);
+  const stepInAlgorythm = findStep(newAlgorythm, step.id);
+  stepInAlgorythm.iterations = iterations;
+  return newAlgorythm;
+};
