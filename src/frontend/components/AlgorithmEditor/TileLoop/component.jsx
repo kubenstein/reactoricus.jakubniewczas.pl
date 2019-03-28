@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import FunctionLink from 'components/FunctionLink';
-import Tile from 'components/MovementEditor/Tile';
-import TileNew from 'components/MovementEditor/TileNew';
-import Self from 'components/MovementEditor/TileLoop';
+import Tile from 'components/AlgorithmEditor/Tile';
+import TileNew from 'components/AlgorithmEditor/TileNew';
+import Self from 'components/AlgorithmEditor/TileLoop';
 
 import './styles.css';
 

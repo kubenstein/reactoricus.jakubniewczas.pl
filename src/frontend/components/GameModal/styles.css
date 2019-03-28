@@ -39,7 +39,7 @@
   border: 1px solid $grey;
 }
 
-.movementEditor {
+.algorithmEditor {
   flex: 0 0 200px;
   width: 100%;
   max-width: 900px;

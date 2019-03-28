@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import FunctionLink from 'components/FunctionLink';
-import MovementEditor from 'components/MovementEditor';
+import AlgorithmEditor from 'components/AlgorithmEditor';
 
 import './styles.css';
 
@@ -21,7 +21,7 @@ const GameModal = ({ onClose, map: { id } }) => {
         render unity webgl here, map id:
         {id}
       </div>
-      <MovementEditor styleName="movementEditor" />
+      <AlgorithmEditor styleName="algorithmEditor" />
     </div>
   );
 };
