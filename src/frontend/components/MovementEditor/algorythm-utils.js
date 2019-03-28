@@ -6,30 +6,39 @@ const findStep = (algorythm, stepId) => {
   for (let i = 0; i < algorythm.length; i += 1) {
     const step = algorythm[i];
     if (step.id === stepId) return step;
+    if (step.algorythm) {
+      const foundStep = findStep(step.algorythm, stepId);
+      if (foundStep) return foundStep;
+    }
   }
   return null;
 };
 
-
-export const buildStep = ({ type }) => (type === 'loop' ? {
+export const buildStep = ({ type, parent }) => (type === 'loop' ? {
   id: uuid(),
+  algorythm: [],
   iterations: 1,
+  parentId: parent && parent.id,
   type,
 } : {
   id: uuid(),
+  parentId: parent && parent.id,
   type,
 });
 
 export const addStep = ({ algorythm, step }) => {
   const newAlgorythm = deepCopy(algorythm);
-  newAlgorythm.push(step);
+  const parent = findStep(newAlgorythm, step.parentId);
+  (parent ? parent.algorythm : newAlgorythm).push(step);
   return newAlgorythm;
 };
 
 export const removeStep = ({ algorythm, step }) => {
   const newAlgorythm = deepCopy(algorythm);
-  const index = newAlgorythm.findIndex(s => s.id === step.id);
-  newAlgorythm.splice(index, 1);
+  const parent = findStep(newAlgorythm, step.parentId);
+  const queue = parent ? parent.algorythm : newAlgorythm;
+  const index = queue.findIndex(s => s.id === step.id);
+  queue.splice(index, 1);
   return newAlgorythm;
 };
 
