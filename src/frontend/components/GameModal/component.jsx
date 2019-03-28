@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import FunctionLink from 'components/FunctionLink';
+import MovementEditor from 'components/MovementEditor';
 
 import './styles.css';
 
@@ -14,13 +15,13 @@ const GameModal = ({ onClose, map: { id } }) => {
   });
 
   return (
-    <div styleName="gameModal">
+    <div styleName="gameModal" id="gameModal">
       <FunctionLink styleName="close" onClick={onClose}>✖</FunctionLink>
       <div styleName="unityPlayer">
         render unity webgl here, map id:
         {id}
       </div>
-      <div styleName="movementEditor">movement Editor</div>
+      <MovementEditor styleName="movementEditor" />
     </div>
   );
 };

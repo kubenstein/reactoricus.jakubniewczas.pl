@@ -1,0 +1,15 @@
+@import "../../assets/stylesheets/import";
+
+.wrapper {
+  width: 100%;
+  overflow: scroll;
+}
+
+.hScrollable {
+  display: inline-flex;
+  align-items: center;
+  min-width: 100%;
+  height: 100%;
+  background: $white url('../../assets/images/cyber-background.jpg');
+  -webkit-overflow-scrolling: touch;
+}
