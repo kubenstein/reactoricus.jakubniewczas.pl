@@ -7,6 +7,12 @@ $grey-light: #e3e3e3;
 $dark: #666;
 $black: #242730;
 
+// tiles colors:
+$tile-green: #265C30;
+$tile-yellow: #E6C534;
+$tile-blue: #033FA9;
+$tile-orange: #E76E0D;
+
 $main: $radical-red;
 $main-hover: $radical-red-light;
 $main-text: $dark;

@@ -1,0 +1,84 @@
+@import "../../../assets/stylesheets/import";
+
+
+.tileNew {
+  display: block;
+  width: 100px;
+  min-height: 100px;
+  cursor: pointer;
+  background: $grey-light url('../../../assets/images/add.png') 50% 50% no-repeat;
+  background-size: 50%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 12;
+}
+
+.menu {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid $grey-light;
+  transition: border-color 0.5s;
+  z-index: 13;
+
+  &:hover {
+    border-color: $grey;
+  }
+}
+
+.item {
+  display: block;
+  float: left;
+  width: 50%;
+  padding-bottom: 50%;
+  background-size: 45% !important;
+  cursor: pointer;
+  transition: background-color 1s;
+}
+
+.forward {
+  @extend .item;
+  background: lighten($tile-green, 30%) url('../../../assets/images/forward.png') 70% 60% no-repeat;
+
+  &:hover {
+    background-color: $tile-green;
+  }
+}
+
+.loop {
+  @extend .item;
+  background: lighten($tile-orange, 30%) url('../../../assets/images/loop.png') 40% 60% no-repeat;
+
+  &:hover {
+    background-color: $tile-orange;
+  }
+}
+
+.turnLeft {
+  @extend .item;
+  background: lighten($tile-yellow, 30%) url('../../../assets/images/turn-left.png') 65% 30% no-repeat;
+
+  &:hover {
+    background-color: $tile-yellow;
+  }
+}
+
+.turnRight {
+  @extend .item;
+  background: lighten($tile-blue, 30%) url('../../../assets/images/turn-right.png') 40% 30% no-repeat;
+
+  &:hover {
+    background-color: $tile-blue;
+  }
+}

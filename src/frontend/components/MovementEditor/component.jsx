@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import TileNew from 'components/MovementEditor/TileNew';
 import './styles.css';
 
 const MovementEditor = ({ className, algorythm }) => (
@@ -9,6 +10,7 @@ const MovementEditor = ({ className, algorythm }) => (
       {algorythm.map(step => (
         <div key={step.id} />
       ))}
+      <TileNew />
     </div>
   </div>
 );
