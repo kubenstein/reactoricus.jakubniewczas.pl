@@ -1,14 +1,14 @@
 import connect from 'lib/appState/connect';
 
-import { addStep, buildStep } from '../algorythm-utils';
+import { addStep, buildStep } from '../algorithm-utils';
 import Component from './component';
 
 
-const mapStateToProps = ({ algorythm = [] }, { parent }, updateState) => ({
+const mapStateToProps = ({ algorithm = [] }, { parent }, updateState) => ({
   addTile: (type) => {
     const step = buildStep({ type, parent });
-    const newAlgorythm = addStep({ algorythm, step });
-    updateState({ algorythm: newAlgorythm });
+    const newAlgorithm = addStep({ algorithm, step });
+    updateState({ algorithm: newAlgorithm });
   },
 });
 

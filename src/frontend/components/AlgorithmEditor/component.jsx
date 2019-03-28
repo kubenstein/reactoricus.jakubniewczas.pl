@@ -7,10 +7,10 @@ import Tile from 'components/AlgorithmEditor/Tile';
 
 import './styles.css';
 
-const AlgorithmEditor = ({ className, algorythm }) => (
+const AlgorithmEditor = ({ className, algorithm }) => (
   <div className={className} styleName="wrapper">
     <div styleName="hScrollable">
-      {algorythm.map(step => (
+      {algorithm.map(step => (
         step.type === 'loop' ? (
           <TileLoop key={step.id} step={step} />
         ) : (
@@ -23,7 +23,7 @@ const AlgorithmEditor = ({ className, algorythm }) => (
 
 AlgorithmEditor.propTypes = {
   className: PropTypes.string,
-  algorythm: PropTypes.arrayOf(PropTypes.any), // add step shape
+  algorithm: PropTypes.arrayOf(PropTypes.any), // add step shape
 };
 
 export default AlgorithmEditor;

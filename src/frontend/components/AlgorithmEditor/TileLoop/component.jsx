@@ -8,13 +8,13 @@ import Self from 'components/AlgorithmEditor/TileLoop';
 
 import './styles.css';
 
-const TileLoop = ({ onRemove, onChange, step, step: { algorythm, iterations } }) => (
+const TileLoop = ({ onRemove, onChange, step, step: { algorithm, iterations } }) => (
   <div styleName="wrapper">
     <div styleName="tileLoop">
       <FunctionLink styleName="remove" onClick={onRemove}>✖</FunctionLink>
       <input styleName="input" type="number" value={iterations} onChange={e => onChange(parseInt(e.target.value, 0))} />
     </div>
-    {algorythm.map(nestedStep => (
+    {algorithm.map(nestedStep => (
       nestedStep.type === 'loop' ? (
         <Self key={nestedStep.id} step={nestedStep} />
       ) : (

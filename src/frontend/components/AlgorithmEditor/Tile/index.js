@@ -1,12 +1,12 @@
 import connect from 'lib/appState/connect';
 
-import { removeStep } from '../algorythm-utils';
+import { removeStep } from '../algorithm-utils';
 import Component from './component';
 
-const mapStateToProps = ({ algorythm }, { step }, updateState) => ({
+const mapStateToProps = ({ algorithm }, { step }, updateState) => ({
   onRemove: () => {
-    const newAlgorythm = removeStep({ algorythm, step });
-    updateState({ algorythm: newAlgorythm });
+    const newAlgorithm = removeStep({ algorithm, step });
+    updateState({ algorithm: newAlgorithm });
   },
 });
 
