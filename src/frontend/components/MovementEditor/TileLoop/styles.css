@@ -1,0 +1,78 @@
+@import "../../../assets/stylesheets/import";
+
+.wrapper {
+  position: relative;
+  display: flex;
+  border: 5px solid lighten($tile-orange, 30%);
+  border-left: none;
+
+  &:hover {
+    border-color: $tile-orange;
+
+    .tileLoop {
+      background-color: $tile-orange;
+      &::after { @include triangle($tile-orange) }
+    }
+
+    &::after {
+      @include triangle($tile-orange);
+    }
+  }
+
+  &::after {
+    @include triangle(lighten($tile-orange, 30%));
+    content: "";
+    position: absolute;
+    top: calc(50% - 15px);
+    right: -19px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 15px;
+    z-index: 11;
+  }
+}
+
+.input {
+  width: 30px;
+  margin-left: 5px;
+  padding: 2px;
+  font-size: 14px;
+  text-align: center;
+  border: 0;
+  border-radius: 4px;
+}
+
+.remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 5px;
+  cursor: pointer;
+  color: $white;
+  background-color: $dark;
+}
+
+.tileLoop {
+  position: relative;
+  display: block;
+  width: 100px;
+  min-width: 100px;
+  background-size: 50% !important;
+  background: lighten($tile-orange, 30%) url('../../../assets/images/loop.png') 50% 50% no-repeat;
+
+  &::after {
+    @include triangle(lighten($tile-orange, 30%));
+    content: "";
+    position: absolute;
+    top: calc(50% - 15px);
+    right: -15px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 15px;
+    z-index: 11;
+  }
+}

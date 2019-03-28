@@ -11,7 +11,11 @@ const findStep = (algorythm, stepId) => {
 };
 
 
-export const buildStep = ({ type }) => ({
+export const buildStep = ({ type }) => (type === 'loop' ? {
+  id: uuid(),
+  iterations: 1,
+  type,
+} : {
   id: uuid(),
   type,
 });

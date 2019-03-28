@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import TileLoop from 'components/MovementEditor/TileLoop';
 import TileNew from 'components/MovementEditor/TileNew';
 import Tile from 'components/MovementEditor/Tile';
 
@@ -10,8 +11,11 @@ const MovementEditor = ({ className, algorythm }) => (
   <div className={className} styleName="wrapper">
     <div styleName="hScrollable">
       {algorythm.map(step => (
-        <Tile key={step.id} step={step} />
-      ))}
+        step.type === 'loop' ? (
+          <TileLoop key={step.id} step={step} />
+        ) : (
+          <Tile key={step.id} step={step} />
+        )))}
       <TileNew />
     </div>
   </div>
