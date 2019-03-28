@@ -38,7 +38,8 @@
   background: lighten($tile-green, 30%) url('../../../assets/images/forward.png') 50% 50% no-repeat;
 
   &::after { @include triangle(lighten($tile-green, 30%)) }
-  &:hover {
+  &:hover,
+  &:global(.active) {
     background-color: $tile-green;
     &::after { @include triangle($tile-green) }
   }
@@ -49,7 +50,8 @@
   background: lighten($tile-yellow, 30%) url('../../../assets/images/turn-left.png') 50% 50% no-repeat;
 
   &::after { @include triangle(lighten($tile-yellow, 30%)) }
-  &:hover {
+  &:hover,
+  &:global(.active) {
     background-color: $tile-yellow;
     &::after { @include triangle($tile-yellow) }
   }
@@ -60,7 +62,8 @@
   background: lighten($tile-blue, 30%) url('../../../assets/images/turn-right.png') 50% 50% no-repeat;
 
   &::after { @include triangle(lighten($tile-blue, 30%)) }
-  &:hover {
+  &:hover,
+  &:global(.active) {
     background-color: $tile-blue;
     &::after { @include triangle($tile-blue) }
   }

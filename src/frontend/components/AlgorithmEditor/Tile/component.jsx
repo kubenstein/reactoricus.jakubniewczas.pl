@@ -5,13 +5,17 @@ import FunctionLink from 'components/FunctionLink';
 
 import './styles.css';
 
-const Tile = ({ onRemove, step: { type } }) => (
-  <div styleName={`tile-${type}`}>
+const Tile = ({ isActive, onRemove, step: { type } }) => (
+  <div
+    className={isActive ? 'active' : ''}
+    styleName={`tile-${type}`}
+  >
     <FunctionLink styleName="remove" onClick={onRemove}>✖</FunctionLink>
   </div>
 );
 
 Tile.propTypes = {
+  isActive: PropTypes.bool,
   onRemove: PropTypes.func.isRequired,
   step: PropTypes.any.isRequired, // add step shape
 };
