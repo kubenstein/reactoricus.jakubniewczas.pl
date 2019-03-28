@@ -1,0 +1,26 @@
+@import "../../assets/stylesheets/import";
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+}
+
+.playButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70px;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: $main;
+  text-align: center;
+  color: $white;
+  cursor: pointer;
+  transition: background-color 0.5s;
+
+  &:hover {
+    background-color: $main-hover;
+  }
+}

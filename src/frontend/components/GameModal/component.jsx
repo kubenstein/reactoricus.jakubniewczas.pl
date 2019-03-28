@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import FunctionLink from 'components/FunctionLink';
 import AlgorithmEditor from 'components/AlgorithmEditor';
+import PlayButton from 'components/PlayButton';
 
 import './styles.css';
 
@@ -21,6 +22,7 @@ const GameModal = ({ onClose, map: { id } }) => {
         render unity webgl here, map id:
         {id}
       </div>
+      <PlayButton styleName="playButton" />
       <AlgorithmEditor styleName="algorithmEditor" />
     </div>
   );

@@ -46,3 +46,9 @@
   margin-top: 20px;
   border: 1px solid $grey;
 }
+
+.playButton {
+  position: relative;
+  height: 0;
+  top: 20px;
+}
