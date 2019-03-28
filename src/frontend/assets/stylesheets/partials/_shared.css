@@ -1,0 +1,3 @@
+@mixin triangle($color) {
+  border-color: transparent transparent transparent $color;
+}

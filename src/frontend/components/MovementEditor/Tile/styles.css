@@ -1,0 +1,67 @@
+@import "../../../assets/stylesheets/import";
+
+.remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 5px;
+  cursor: pointer;
+  color: $white;
+  background-color: $dark;
+}
+
+.tile {
+  position: relative;
+  display: block;
+  width: 100px;
+  min-width: 100px;
+  min-height: 100px;
+  background-size: 50% !important;
+
+  &::after {
+    @include triangle($grey);
+    content: "";
+    position: absolute;
+    top: calc(50% - 15px);
+    right: -15px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 15px;
+    z-index: 11;
+  }
+}
+
+.tile-forward {
+  @extend .tile;
+  background: lighten($tile-green, 30%) url('../../../assets/images/forward.png') 50% 50% no-repeat;
+
+  &::after { @include triangle(lighten($tile-green, 30%)) }
+  &:hover {
+    background-color: $tile-green;
+    &::after { @include triangle($tile-green) }
+  }
+}
+
+.tile-turnLeft {
+  @extend .tile;
+  background: lighten($tile-yellow, 30%) url('../../../assets/images/turn-left.png') 50% 50% no-repeat;
+
+  &::after { @include triangle(lighten($tile-yellow, 30%)) }
+  &:hover {
+    background-color: $tile-yellow;
+    &::after { @include triangle($tile-yellow) }
+  }
+}
+
+.tile-turnRight {
+  @extend .tile;
+  background: lighten($tile-blue, 30%) url('../../../assets/images/turn-right.png') 50% 50% no-repeat;
+
+  &::after { @include triangle(lighten($tile-blue, 30%)) }
+  &:hover {
+    background-color: $tile-blue;
+    &::after { @include triangle($tile-blue) }
+  }
+}

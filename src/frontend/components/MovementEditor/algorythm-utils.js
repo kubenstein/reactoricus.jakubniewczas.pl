@@ -22,3 +22,10 @@ export const addStep = ({ algorythm, step }) => {
   return newAlgorythm;
 };
 
+export const removeStep = ({ algorythm, step }) => {
+  const newAlgorythm = deepCopy(algorythm);
+  const index = newAlgorythm.findIndex(s => s.id === step.id);
+  newAlgorythm.splice(index, 1);
+  return newAlgorythm;
+};
+
