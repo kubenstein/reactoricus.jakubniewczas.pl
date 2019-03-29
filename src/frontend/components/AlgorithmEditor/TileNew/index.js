@@ -4,11 +4,16 @@ import { addStep, buildStep } from '../algorithm-utils';
 import Component from './component';
 
 
-const mapStateToProps = ({ algorithm = [] }, { parent }, updateState) => ({
+const mapStateToProps = ({ openedMapId, algorithms }, { parent }, updateState) => ({
   addTile: (type) => {
+    const algorithm = algorithms[openedMapId] || [];
     const step = buildStep({ type, parent });
     const newAlgorithm = addStep({ algorithm, step });
-    updateState({ algorithm: newAlgorithm });
+
+    updateState({ algorithms: {
+      ...algorithms,
+      [openedMapId]: newAlgorithm,
+    } });
   },
 });
 

@@ -7,8 +7,12 @@ import Maps from 'components/Maps';
 
 import 'assets';
 
+const initialState = {
+  algorithms: {},
+};
+
 ReactDOM.render(
-  <StateProvider>
+  <StateProvider initialState={initialState}>
     <Maps />
   </StateProvider>,
   document.getElementById('app'),

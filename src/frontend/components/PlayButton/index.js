@@ -4,8 +4,9 @@ import { execute } from './algorithm-execution-utils';
 
 import Component from './component';
 
-const mapStateToProps = ({ algorithm = [] }, _props, updateState) => ({
+const mapStateToProps = ({ openedMapId, algorithms }, _props, updateState) => ({
   onClick: () => {
+    const algorithm = algorithms[openedMapId];
     execute(algorithm, (step, next) => {
       updateState({ currentlyPlayedStepId: step.id });
       setTimeout(next, 1000);
