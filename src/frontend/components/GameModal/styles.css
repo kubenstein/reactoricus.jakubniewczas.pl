@@ -47,7 +47,8 @@
   border: 1px solid $grey;
 }
 
-.playButton {
+.playButton,
+.resetButton {
   position: relative;
   height: 0;
   top: 20px;

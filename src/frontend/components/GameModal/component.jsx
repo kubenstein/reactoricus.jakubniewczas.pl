@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import FunctionLink from 'components/FunctionLink';
 import AlgorithmEditor from 'components/AlgorithmEditor';
 import PlayButton from 'components/PlayButton';
+import ResetButton from 'components/ResetButton';
 
 import './styles.css';
 
@@ -23,6 +24,7 @@ const GameModal = ({ onClose, map: { id } }) => {
         {id}
       </div>
       <PlayButton styleName="playButton" />
+      <ResetButton styleName="resetButton" />
       <AlgorithmEditor styleName="algorithmEditor" />
     </div>
   );
