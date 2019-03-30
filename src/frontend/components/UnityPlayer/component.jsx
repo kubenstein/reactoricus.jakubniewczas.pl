@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
-const UnityPlayer = ({ initializeGame, className }) => {
+const UnityPlayer = ({ initializeGame, unloadGame, className }) => {
   useEffect(() => {
     initializeGame({ nodeId: 'gameContainer' });
+    return () => unloadGame();
   }, []);
 
   return (
@@ -15,6 +16,7 @@ const UnityPlayer = ({ initializeGame, className }) => {
 
 UnityPlayer.propTypes = {
   initializeGame: PropTypes.func.isRequired,
+  unloadGame: PropTypes.func.isRequired,
   className: PropTypes.string,
 };
 
