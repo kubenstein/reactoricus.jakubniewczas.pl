@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.InteropServices;
 
 public class MapGenerator : MonoBehaviour {
     public Transform[] segmentsPrefabs;
     public Transform starPrefab;
 
-    void Start() {
-        CreateSegment(0, 0, false);
-        CreateSegment(1, 0, true);
-        CreateSegment(1, 1, false);
-    }
+    [DllImport("__Internal")]
+    private static extern string GetMapCoordinates();
 
+    void Start() {
+        MapCoordinationsProvider mcp = new MapCoordinationsProvider();
+
+        foreach(MapCoordinates coordinates in mcp.MapCoordinates()) { 
+            CreateSegment(coordinates.x, coordinates.y, coordinates.withStar);
+        }
+    }
 
     private
 
