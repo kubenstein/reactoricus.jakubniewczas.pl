@@ -7,4 +7,8 @@
     stringToUTF8(mapCoordinates, buffer, bufferSize);
     return buffer;
   },
+
+  OnConfirmationEvent: function (confirmationEventName) {
+    console.log(confirmationEventName);
+  }
 });

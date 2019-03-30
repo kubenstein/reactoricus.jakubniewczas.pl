@@ -203,6 +203,8 @@ MonoBehaviour:
   - {fileID: 7643579186517566762, guid: 2c7f8cdc09040425f8be9500a2a0d913, type: 3}
   starPrefab: {fileID: 2911997324213516015, guid: a413a3a1de15040d5815f37cf76ba060,
     type: 3}
+  playerPrefab: {fileID: 8046042288344152295, guid: 26bea814a83104f1aa7939dd88837a8e,
+    type: 3}
 --- !u!1001 &1763847676
 PrefabInstance:
   m_ObjectHideFlags: 0

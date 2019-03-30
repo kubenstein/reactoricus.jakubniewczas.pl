@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 public class MapGenerator : MonoBehaviour {
     public Transform[] segmentsPrefabs;
     public Transform starPrefab;
+    public Transform playerPrefab;
 
     [DllImport("__Internal")]
     private static extern string GetMapCoordinates();
@@ -16,6 +17,8 @@ public class MapGenerator : MonoBehaviour {
         foreach(MapCoordinates coordinates in mcp.MapCoordinates()) { 
             CreateSegment(coordinates.x, coordinates.y, coordinates.withStar);
         }
+
+        CreatePlayer();
     }
 
     private
@@ -33,6 +36,11 @@ public class MapGenerator : MonoBehaviour {
     void InstantiateStar(Vector3 position) {
         Vector3 starPosition = new Vector3(position.x, 1, position.z);
         Instantiate(starPrefab, starPosition, Quaternion.identity);
+    }
+
+    void CreatePlayer() {
+        Vector3 playerPosition = new Vector3(0, 1, 0);
+        Instantiate(playerPrefab, playerPosition, Quaternion.identity);
     }
 
     Transform RandomSegment() {
