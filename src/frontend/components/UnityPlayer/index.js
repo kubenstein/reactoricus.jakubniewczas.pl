@@ -2,9 +2,10 @@ import connect from 'lib/appState/connect';
 
 import Component from './component';
 
-const mapStateToProps = (_state, _props, updateState) => ({
+const mapStateToProps = ({ maps, openedMapId }, _props, updateState) => ({
   initializeGame: ({ nodeId }) => {
-    window.mapCoordinates = '0,0,0|1,0,1|1,1,0'; // binding with UnityPlayer
+    const map = maps.filter(m => m.id === openedMapId)[0];
+    window.mapCoordinates = map.coordinates; // binding with UnityPlayer
     updateState({
       unityPlayerInstance: window.UnityLoader.instantiate(nodeId, 'game.json'),
     });

@@ -14,6 +14,26 @@ const onChange = ({ keyValueObj: { algorithms } }) => {
 
 const initialState = {
   algorithms: localStorage.get('algorithms') || {},
+  maps: [
+    {
+      id: '1',
+      createdAt: '25.03.2019',
+      played: 24,
+      coordinates: '0,0,0|1,0,1|1,1,0|1,2,0|1,3,0|1,4,0',
+    },
+    {
+      id: '2',
+      createdAt: '01.01.2019',
+      played: 124,
+      coordinates: '0,0,0',
+    },
+    {
+      id: '3',
+      createdAt: '01.01.2019',
+      played: 124,
+      coordinates: '0,0,0|1,0,1|1,1,0|1,2,0|2,2,0',
+    },
+  ],
 };
 
 ReactDOM.render(
