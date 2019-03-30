@@ -6,6 +6,8 @@ import AlgorithmEditor from 'components/AlgorithmEditor';
 import PlayButton from 'components/PlayButton';
 import ResetButton from 'components/ResetButton';
 
+import { mapShape } from 'lib/shapes';
+
 import './styles.css';
 
 const GameModal = ({ onClose, map: { id } }) => {
@@ -32,7 +34,7 @@ const GameModal = ({ onClose, map: { id } }) => {
 
 GameModal.propTypes = {
   onClose: PropTypes.func.isRequired,
-  map: PropTypes.any, // add map shape
+  map: mapShape.isRequired,
 };
 
 export default GameModal;

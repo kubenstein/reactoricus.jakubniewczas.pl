@@ -5,6 +5,8 @@ import TileLoop from 'components/AlgorithmEditor/TileLoop';
 import TileNew from 'components/AlgorithmEditor/TileNew';
 import Tile from 'components/AlgorithmEditor/Tile';
 
+import { stepShape } from 'lib/shapes';
+
 import './styles.css';
 
 const AlgorithmEditor = ({ className, algorithm }) => (
@@ -23,7 +25,7 @@ const AlgorithmEditor = ({ className, algorithm }) => (
 
 AlgorithmEditor.propTypes = {
   className: PropTypes.string,
-  algorithm: PropTypes.arrayOf(PropTypes.any), // add step shape
+  algorithm: PropTypes.arrayOf(stepShape),
 };
 
 export default AlgorithmEditor;

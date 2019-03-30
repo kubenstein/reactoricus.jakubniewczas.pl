@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import MapHeader from 'components/MapHeader';
 import Map from 'components/Map';
 import Footer from 'components/Footer';
+
+import { mapShape } from 'lib/shapes';
+
 import './styles.css';
 
 const Maps = ({ maps }) => (
@@ -27,7 +30,7 @@ const Maps = ({ maps }) => (
 );
 
 Maps.propTypes = {
-  maps: PropTypes.arrayOf(PropTypes.any), // add map shape
+  maps: PropTypes.arrayOf(mapShape),
 };
 
 export default Maps;

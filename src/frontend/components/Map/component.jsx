@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import FunctionLink from 'components/FunctionLink';
 import GameModal from 'components/GameModal';
 
+import { mapShape } from 'lib/shapes';
+
 import './styles.css';
 
 const Map = ({ isOpen, onClick, map, map: { createdAt, played } }) => (
@@ -27,7 +29,7 @@ const Map = ({ isOpen, onClick, map, map: { createdAt, played } }) => (
 Map.propTypes = {
   isOpen: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
-  map: PropTypes.any, // add map shape
+  map: mapShape.isRequired,
 };
 
 export default Map;

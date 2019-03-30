@@ -6,6 +6,8 @@ import Tile from 'components/AlgorithmEditor/Tile';
 import TileNew from 'components/AlgorithmEditor/TileNew';
 import Self from 'components/AlgorithmEditor/TileLoop';
 
+import { stepShape } from 'lib/shapes';
+
 import './styles.css';
 
 const TileLoop = ({ onRemove, onChange, step, step: { algorithm, iterations } }) => (
@@ -28,7 +30,7 @@ const TileLoop = ({ onRemove, onChange, step, step: { algorithm, iterations } })
 TileLoop.propTypes = {
   onRemove: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  step: PropTypes.any.isRequired, // add step shape
+  step: stepShape.isRequired,
 };
 
 export default TileLoop;
