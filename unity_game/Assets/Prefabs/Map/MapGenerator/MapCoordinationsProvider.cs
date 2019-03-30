@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 
 public class MapCoordinationsProvider {
-    [DllImport("__Internal")]
-    private static extern string GetMapCoordinates();
-
     public List<MapCoordinates> MapCoordinates() {
         List<MapCoordinates> coordinates = new List<MapCoordinates>();
 
         string mapCoordinates;
         try {
-            mapCoordinates = GetMapCoordinates();
+            mapCoordinates = WebBinding.GetMapCoordinates();
         } catch(Exception e) {
             mapCoordinates = "0,0,0|1,0,1|1,1,0|1,2,0|1,3,0";
         }

@@ -1,15 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Runtime.InteropServices;
 
 public class MapGenerator : MonoBehaviour {
     public Transform[] segmentsPrefabs;
     public Transform starPrefab;
     public Transform playerPrefab;
-
-    [DllImport("__Internal")]
-    private static extern string GetMapCoordinates();
 
     void Start() {
         MapCoordinationsProvider mcp = new MapCoordinationsProvider();

@@ -47,7 +47,7 @@ public class ReaktoriousMovement : MonoBehaviour {
 
     void Confirm(string eventName) {
         try {
-            OnConfirmationEvent(eventName + "Done");
+            WebBinding.OnConfirmationEvent(eventName + "Done");
         } catch (Exception e) { }
     }
 }
