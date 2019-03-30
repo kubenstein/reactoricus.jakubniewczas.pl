@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 
 import FunctionLink from 'components/FunctionLink';
 import AlgorithmEditor from 'components/AlgorithmEditor';
+import UnityPlayer from 'components/UnityPlayer';
 import PlayButton from 'components/PlayButton';
 import ResetButton from 'components/ResetButton';
 
-import { mapShape } from 'lib/shapes';
-
 import './styles.css';
 
-const GameModal = ({ onClose, map: { id } }) => {
+const GameModal = ({ onClose }) => {
   useEffect(() => {
     document.body.classList.add('gameModalOpened');
     return () => {
@@ -21,10 +20,7 @@ const GameModal = ({ onClose, map: { id } }) => {
   return (
     <div styleName="gameModal" id="gameModal">
       <FunctionLink styleName="close" onClick={onClose}>✖</FunctionLink>
-      <div styleName="unityPlayer">
-        render unity webgl here, map id:
-        {id}
-      </div>
+      <UnityPlayer styleName="unityPlayer" />
       <PlayButton styleName="playButton" />
       <ResetButton styleName="resetButton" />
       <AlgorithmEditor styleName="algorithmEditor" />
@@ -34,7 +30,6 @@ const GameModal = ({ onClose, map: { id } }) => {
 
 GameModal.propTypes = {
   onClose: PropTypes.func.isRequired,
-  map: mapShape.isRequired,
 };
 
 export default GameModal;

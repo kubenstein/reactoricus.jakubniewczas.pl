@@ -1,4 +1,5 @@
 /* eslint-disable no-var, vars-on-top */
+const pathUtils = require('path');
 const fs = require('fs-extra');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -96,6 +97,7 @@ module.exports = {
 
   devServer: {
     disableHostCheck: true,
+    contentBase: [pathUtils.join(__dirname, 'unitybuild')],
     proxy: {
     },
   },

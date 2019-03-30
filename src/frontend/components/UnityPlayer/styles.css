@@ -1,0 +1,7 @@
+.gameContainer {
+  /*
+   * hax making unity canvas not breaking the layout.
+   * it looks like unity player doesnt play nice with flexbox
+   */
+  height: 0;
+}

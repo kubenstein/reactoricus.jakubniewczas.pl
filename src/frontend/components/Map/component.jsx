@@ -8,9 +8,9 @@ import { mapShape } from 'lib/shapes';
 
 import './styles.css';
 
-const Map = ({ isOpen, onClick, map, map: { createdAt, played } }) => (
+const Map = ({ isOpen, onClick, map: { createdAt, played } }) => (
   <>
-    {isOpen && <GameModal map={map} />}
+    {isOpen && <GameModal />}
     <div styleName="map">
       <FunctionLink onClick={onClick}>
         <img alt="map preview" src="https://via.placeholder.com/430x430" />
