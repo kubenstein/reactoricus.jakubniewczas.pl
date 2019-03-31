@@ -9,6 +9,6 @@
   },
 
   OnConfirmationEvent: function (confirmationEventName) {
-    console.log(confirmationEventName);
+    window.OnConfirmationEvent(Pointer_stringify(confirmationEventName));
   }
 });
