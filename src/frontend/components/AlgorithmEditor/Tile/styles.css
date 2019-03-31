@@ -33,7 +33,7 @@
   }
 }
 
-.tile-forward {
+.tile-Forward {
   @extend .tile;
   background: lighten($tile-green, 30%) url('../../../assets/images/forward.png') 50% 50% no-repeat;
 
@@ -45,7 +45,7 @@
   }
 }
 
-.tile-turnLeft {
+.tile-TurnLeft {
   @extend .tile;
   background: lighten($tile-yellow, 30%) url('../../../assets/images/turn-left.png') 50% 50% no-repeat;
 
@@ -57,7 +57,7 @@
   }
 }
 
-.tile-turnRight {
+.tile-TurnRight {
   @extend .tile;
   background: lighten($tile-blue, 30%) url('../../../assets/images/turn-right.png') 50% 50% no-repeat;
 

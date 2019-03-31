@@ -1,7 +1,7 @@
 const traverse = (algorithm, stepCb) => {
   for (let i = 0; i < algorithm.length; i += 1) {
     const step = algorithm[i];
-    if (step.type === 'loop') {
+    if (step.type === 'Loop') {
       for (let loopI = 0; loopI < step.iterations; loopI += 1) {
         traverse(step.algorithm, stepCb);
       }

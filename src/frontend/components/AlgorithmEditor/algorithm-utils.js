@@ -14,7 +14,7 @@ const findStep = (algorithm, stepId) => {
   return null;
 };
 
-export const buildStep = ({ type, parent }) => (type === 'loop' ? {
+export const buildStep = ({ type, parent }) => (type === 'Loop' ? {
   id: uuid(),
   algorithm: [],
   iterations: 1,

@@ -17,7 +17,7 @@ const TileLoop = ({ onRemove, onChange, step, step: { algorithm, iterations } })
       <input styleName="input" type="number" value={iterations} onChange={e => onChange(parseInt(e.target.value, 0))} />
     </div>
     {algorithm.map(nestedStep => (
-      nestedStep.type === 'loop' ? (
+      nestedStep.type === 'Loop' ? (
         <Self key={nestedStep.id} step={nestedStep} />
       ) : (
         <Tile key={nestedStep.id} step={nestedStep} />

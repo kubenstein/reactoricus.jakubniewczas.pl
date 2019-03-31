@@ -13,7 +13,7 @@ const AlgorithmEditor = ({ className, algorithm }) => (
   <div className={className} styleName="wrapper">
     <div styleName="hScrollable">
       {algorithm.map(step => (
-        step.type === 'loop' ? (
+        step.type === 'Loop' ? (
           <TileLoop key={step.id} step={step} />
         ) : (
           <Tile key={step.id} step={step} />

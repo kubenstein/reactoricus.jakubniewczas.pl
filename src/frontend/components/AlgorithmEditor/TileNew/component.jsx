@@ -19,10 +19,10 @@ const TileNew = ({ addTile }) => {
       {isOpen && <FunctionLink styleName="overlay" onClick={() => open(false)} />}
       {isOpen && ReactDOM.createPortal(
         <div styleName="menu">
-          <FunctionLink styleName="forward" onClick={() => onTileClick('forward')} />
-          <FunctionLink styleName="loop" onClick={() => onTileClick('loop')} />
-          <FunctionLink styleName="turnLeft" onClick={() => onTileClick('turnLeft')} />
-          <FunctionLink styleName="turnRight" onClick={() => onTileClick('turnRight')} />
+          <FunctionLink styleName="forward" onClick={() => onTileClick('Forward')} />
+          <FunctionLink styleName="loop" onClick={() => onTileClick('Loop')} />
+          <FunctionLink styleName="turnLeft" onClick={() => onTileClick('TurnLeft')} />
+          <FunctionLink styleName="turnRight" onClick={() => onTileClick('TurnRight')} />
         </div>,
         document.getElementById('gameModal'))
       }
