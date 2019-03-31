@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 695384129210601725}
   - component: {fileID: 5310837768598055315}
   - component: {fileID: 8621701109630845040}
+  - component: {fileID: 126360981598604254}
   m_Layer: 0
   m_Name: Reaktoricus
   m_TagString: Untagged
@@ -101,6 +102,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6890884421779209269}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 13ab87ae090114b529ae72ff7cb140dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.05
+--- !u!114 &126360981598604254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6890884421779209269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: eb041393039a14d58b5f989ac47d7cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
