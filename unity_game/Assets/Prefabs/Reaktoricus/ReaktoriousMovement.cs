@@ -51,38 +51,57 @@ public class ReaktoriousMovement : MonoBehaviour {
     void FixedUpdate() {
         if (steps.Count > 0) {
             Step currentStep = steps[0];
-            if (currentStep.outsideMap) {
-                if (transform.position.y > 0) {
-                    transform.position += new Vector3(0, -1, 0) * moveSpeed;
-                } else {
-                    Fail(currentStep.name);
-                    steps = new List<Step>();
-                }
-            }
 
-            if (currentStep.name.Equals("GameStart")) {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                transform.position = new Vector3(0, 1, 0);
-            }
-
-            if (currentStep.name.Equals("TurnLeft") || currentStep.name.Equals("TurnRight")) {
-                Vector3 newForward = Vector3.RotateTowards(transform.forward, currentStep.forward, moveSpeed, 0.0f);
-                transform.rotation = Quaternion.LookRotation(newForward);
-            }
-
-            if (currentStep.name.Equals("Forward")) {
-                transform.position += currentStep.forward * moveSpeed;
-            }
-
-            if (ReachedDestination(currentStep)) {
-                Confirm(currentStep.name);
-                steps.RemoveAt(0);
-            }
+            HandleOutside(currentStep);
+            HandleGameStart(currentStep);
+            HandleTurning(currentStep);
+            HandleMovingForward(currentStep);
+            HandleReachedDestination(currentStep);
         }
     }
 
 
     // private
+
+    void HandleOutside(Step step) {
+        if (step.outsideMap) {
+            if (transform.position.y > 0) {
+                transform.position += new Vector3(0, -1, 0) * moveSpeed;
+            } else {
+                Fail(step.name);
+                steps = new List<Step>();
+            }
+        }
+    }
+
+    void HandleGameStart(Step step) {
+        if (step.name.Equals("GameStart")) {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.position = new Vector3(0, 1, 0);
+        }
+    }
+
+    void HandleTurning(Step step) {
+        if (step.name.Equals("TurnLeft") || step.name.Equals("TurnRight")) {
+            Vector3 newForward = Vector3.RotateTowards(transform.forward, step.forward, moveSpeed, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newForward);
+        }
+    }
+
+    void HandleMovingForward(Step step) {
+        if (step.name.Equals("Forward")) {
+            transform.position += step.forward * moveSpeed;
+        }
+    }
+
+    void HandleReachedDestination(Step step) {
+        if (ReachedDestination(step)) {
+            Confirm(step.name);
+            steps.RemoveAt(0);
+        }
+    }
+
+    // utils
 
     bool ReachedDestination(Step step) {
         return Mathf.Approximately(step.x, transform.position.x)
