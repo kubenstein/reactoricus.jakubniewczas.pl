@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 public class WebBinding : MonoBehaviour {
     [DllImport("__Internal")]
-    public static extern void OnConfirmationEvent(string confirmationEventName);
+    public static extern void OnEvent(string eventName);
 
     [DllImport("__Internal")]
     public static extern string GetMapCoordinates();

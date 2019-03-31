@@ -15,6 +15,8 @@ public class ReaktoriousMovement : MonoBehaviour {
         float x = transform.position.x;
         float y = transform.position.z; // y is z
         Vector3 forward = transform.forward;
+
+        steps = new List<Step>();
         Step step = new Step("GameStart", x, y, forward);
         steps.Add(step);
     }
@@ -49,6 +51,14 @@ public class ReaktoriousMovement : MonoBehaviour {
     void FixedUpdate() {
         if (steps.Count > 0) {
             Step currentStep = steps[0];
+            if (currentStep.outsideMap) {
+                if (transform.position.y > 0) {
+                    transform.position += new Vector3(0, -1, 0) * moveSpeed;
+                } else {
+                    Fail(currentStep.name);
+                    steps = new List<Step>();
+                }
+            }
 
             if (currentStep.name.Equals("GameStart")) {
                 transform.eulerAngles = new Vector3(0, 0, 0);
@@ -64,7 +74,7 @@ public class ReaktoriousMovement : MonoBehaviour {
                 transform.position += currentStep.forward * moveSpeed;
             }
 
-            if (ReachedDestination(currentStep)) { 
+            if (ReachedDestination(currentStep)) {
                 Confirm(currentStep.name);
                 steps.RemoveAt(0);
             }
@@ -72,7 +82,7 @@ public class ReaktoriousMovement : MonoBehaviour {
     }
 
 
-    // private 
+    // private
 
     bool ReachedDestination(Step step) {
         return Mathf.Approximately(step.x, transform.position.x)
@@ -82,7 +92,13 @@ public class ReaktoriousMovement : MonoBehaviour {
 
     void Confirm(string eventName) {
         try {
-            WebBinding.OnConfirmationEvent(eventName + "Done");
+            WebBinding.OnEvent(eventName + "Done");
+        } catch (Exception e) { }
+    }
+
+    void Fail(string eventName) {
+        try {
+            WebBinding.OnEvent(eventName + "Fail");
         } catch (Exception e) { }
     }
 }
@@ -92,11 +108,24 @@ class Step {
     public float x;
     public float y;
     public Vector3 forward;
+    public bool outsideMap;
 
     public Step(string name, float x, float y, Vector3 forward) {
         this.name = name;
         this.x = x;
         this.y = y;
         this.forward = forward;
+        outsideMap = OutsideMap();
+    }
+
+    private bool OutsideMap() {
+        MapCoordinationsProvider mcp = new MapCoordinationsProvider();
+
+        foreach (MapCoordinates coordinates in mcp.MapCoordinates()) {
+            Debug.Log(coordinates.x +", "+coordinates.y);
+            if (coordinates.x == (int)Mathf.Floor(x) && coordinates.y == (int)Mathf.Floor(y)) return false;
+        }
+
+        return true;
     }
 }

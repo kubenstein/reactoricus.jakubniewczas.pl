@@ -8,7 +8,7 @@
     return buffer;
   },
 
-  OnConfirmationEvent: function (confirmationEventName) {
-    window.OnConfirmationEvent(Pointer_stringify(confirmationEventName));
+  OnEvent: function (eventName) {
+    window.UnityOnEvent(Pointer_stringify(eventName));
   }
 });
