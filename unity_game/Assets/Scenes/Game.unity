@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
+    m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -196,12 +197,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 349894725}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
   m_Script: {fileID: 11500000, guid: 207dc8c4d93764ad7be40a3f1a543542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   segmentsPrefabs:
   - {fileID: 7643579186517566762, guid: 2c7f8cdc09040425f8be9500a2a0d913, type: 3}
-  starPrefab: {fileID: 2911997324213516015, guid: a413a3a1de15040d5815f37cf76ba060,
+  starPrefab: {fileID: 2911997324213516015, guid: 6d16c1a3b359141859b5d88b76417b4c,
     type: 3}
   playerPrefab: {fileID: 8046042288344152295, guid: 26bea814a83104f1aa7939dd88837a8e,
     type: 3}
