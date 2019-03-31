@@ -47,7 +47,8 @@
     "uuid": "^3.3.2",
     "webpack": "~4.29.x",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "~3.1.x"
+    "webpack-dev-server": "~3.1.x",
+    "wolfy87-eventemitter": "^5.2.6"
   },
   "dependencies": {
     "express": "^4.16.4",
