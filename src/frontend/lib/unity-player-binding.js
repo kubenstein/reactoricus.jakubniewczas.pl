@@ -1,5 +1,9 @@
 import EventEmitter from 'wolfy87-eventemitter';
 
+export const setMapCoordinates = (coordinates) => {
+  window.mapCoordinates = coordinates;
+};
+
 export const sendStep = (stepName) => {
   window.unityGame.SendMessage('Reaktorious', stepName);
 };
