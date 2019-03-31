@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 4266264595628942358}
   m_Layer: 0
   m_Name: Reaktoricus
-  m_TagString: Untagged
+  m_TagString: reaktoricus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
