@@ -1,5 +1,5 @@
 import connect from 'lib/appState/connect';
-import { sendStep, receiveConfirmation } from 'lib/unity-player-binding';
+import { sendStep, receiveConfirmation, receiveFail, receiveGameEnds, receiveGameStart } from 'lib/unity-player-binding';
 
 import { execute } from './algorithm-execution-utils';
 
@@ -8,14 +8,18 @@ import Component from './component';
 const mapStateToProps = ({ openedMapId, algorithms }, _props, updateState) => ({
   onClick: () => {
     const algorithm = algorithms[openedMapId];
-    receiveConfirmation('GameStart', () => {
+    const startGame = () => {
+      updateState({ gameStatus: 'start' });
       execute(algorithm, (step, next) => {
-        receiveConfirmation(step.type, () => setTimeout(next, 0));
-        sendStep(step.type);
         updateState({ currentlyPlayedStepId: step.id });
-      });
-    });
+        receiveConfirmation(step.type, () => next());
+        receiveFail(step.type, () => updateState({ gameStatus: 'failed' }));
+        receiveGameEnds(() => updateState({ gameStatus: 'finished' }));
 
+        sendStep(step.type);
+      });
+    };
+    receiveGameStart(startGame);
     sendStep('GameStart');
   },
 });

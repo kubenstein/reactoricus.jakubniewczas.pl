@@ -11,12 +11,27 @@ export const sendStep = (stepName) => {
 //
 // binding with unityGame callback
 // this method will be invoked by unityPlayer
-window.OnConfirmationEvent = (confirmationEvent) => {
-  if (!window.unityGameConfirmationEmitter) window.unityGameConfirmationEmitter = new EventEmitter();
-  window.unityGameConfirmationEmitter.emitEvent(confirmationEvent);
+window.UnityOnEvent = (eventName) => {
+  window.unityGameEmitter.emitEvent(eventName);
+};
+
+export const receiveGameStart = (callback) => {
+  if (window.unityGameEmitter) {
+    window.unityGameEmitter.removeAllListeners();
+  } else {
+    window.unityGameEmitter = new EventEmitter();
+  }
+  window.unityGameEmitter.once('GameStartDone', callback);
 };
 
 export const receiveConfirmation = (eventName, callback) => {
-  if (!window.unityGameConfirmationEmitter) window.unityGameConfirmationEmitter = new EventEmitter();
-  window.unityGameConfirmationEmitter.once(`${eventName}Done`, callback);
+  window.unityGameEmitter.once(`${eventName}Done`, callback);
+};
+
+export const receiveFail = (eventName, callback) => {
+  window.unityGameEmitter.once(`${eventName}Fail`, callback);
+};
+
+export const receiveGameEnds = (callback) => {
+  window.unityGameEmitter.once('GameFinished', callback);
 };
