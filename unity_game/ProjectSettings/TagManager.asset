@@ -6,6 +6,7 @@ TagManager:
   tags:
   - star
   - reaktoricus
+  - box
   layers:
   - Default
   - TransparentFX

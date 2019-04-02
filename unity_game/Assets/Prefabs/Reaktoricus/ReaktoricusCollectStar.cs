@@ -4,17 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ReaktoricusCollectStar : MonoBehaviour {
-    private int starsCount = 0;
+    public int Left = 0;
 
-    private void Awake() {
-        starsCount = GameObject.FindGameObjectsWithTag("star").Length;
+    public void Restart() {
+        Left = GameObject.FindGameObjectsWithTag("star").Length;
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag.Equals("star")) {
-            Destroy(other.gameObject);
-            starsCount -= 1;
-            if (starsCount == 0) {
+            other.gameObject.SetActive(false);
+            Left -= 1;
+            if (Left == 0) {
                 FinishGame();
             }
         }

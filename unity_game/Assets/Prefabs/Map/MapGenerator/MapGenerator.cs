@@ -6,6 +6,13 @@ public class MapGenerator : MonoBehaviour {
     public Transform[] segmentsPrefabs;
     public Transform starPrefab;
     public Transform playerPrefab;
+    private static List<GameObject> stars = new List<GameObject>();
+
+    public static void EnableAllStars() {
+        foreach (GameObject star in stars) {
+            star.SetActive(true);
+        }
+    }
 
     void Start() {
         MapCoordinationsProvider mcp = new MapCoordinationsProvider();
@@ -31,7 +38,8 @@ public class MapGenerator : MonoBehaviour {
 
     void InstantiateStar(Vector3 position) {
         Vector3 starPosition = new Vector3(position.x, 1, position.z);
-        Instantiate(starPrefab, starPosition, Quaternion.identity);
+        GameObject star = Instantiate(starPrefab, starPosition, Quaternion.identity).gameObject;
+        stars.Add(star);
     }
 
     void CreatePlayer() {

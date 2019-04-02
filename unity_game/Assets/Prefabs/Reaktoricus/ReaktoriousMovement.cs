@@ -5,18 +5,29 @@ using UnityEngine;
 
 public class ReaktoriousMovement : MonoBehaviour {
     public float moveSpeed = 0.05f;
+    public GameObject boxDetectorGameObject;
+    private ReaktoriousStayingOnSegmentsDetection boxDetector;
+    private ReaktoricusCollectStar starCollector;
+    private int currentStepIndex = 1; // initial loop running prevention until GameStart is called
+    private bool outOfMap;
     private List<Step> steps = new List<Step>();
 
     void Start() {
         this.name = "Reaktorious";
     }
 
-    void GameStart() {
-        float x = transform.position.x;
-        float y = transform.position.z; // y is z
-        Vector3 forward = transform.forward;
+    void Awake() {
+        boxDetector = boxDetectorGameObject.GetComponent<ReaktoriousStayingOnSegmentsDetection>();
+        starCollector = gameObject.GetComponent<ReaktoricusCollectStar>();
+    }
 
+    void GameStart() {
         steps = new List<Step>();
+        outOfMap = false;
+        currentStepIndex = 0;
+        float x = 0;
+        float y = 0;
+        Vector3 forward = transform.forward;
         Step step = new Step("GameStart", x, y, forward);
         steps.Add(step);
     }
@@ -33,7 +44,7 @@ public class ReaktoriousMovement : MonoBehaviour {
         Step previousStep = steps[steps.Count - 1];
         Vector3 newForward = Quaternion.AngleAxis(90, Vector3.up) * previousStep.forward;
 
-        Step step = new Step("TurnLeft", previousStep.x, previousStep.y, newForward);
+        Step step = new Step("TurnRight", previousStep.x, previousStep.y, newForward);
         steps.Add(step);
     }
 
@@ -49,14 +60,16 @@ public class ReaktoriousMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if (steps.Count > 0) {
-            Step currentStep = steps[0];
+        if (currentStepIndex < steps.Count) {
+            Step currentStep = steps[currentStepIndex];
 
-            HandleOutside(currentStep);
             HandleGameStart(currentStep);
-            HandleTurning(currentStep);
-            HandleMovingForward(currentStep);
-            HandleReachedDestination(currentStep);
+            if (starCollector.Left > 0) {
+                HandleTurning(currentStep);
+                HandleMovingForward(currentStep);
+                HandleReachedDestination(currentStep);
+                HandleOutside(currentStep);
+            }
         }
     }
 
@@ -64,18 +77,20 @@ public class ReaktoriousMovement : MonoBehaviour {
     // private
 
     void HandleOutside(Step step) {
-        if (step.outsideMap) {
+        if (outOfMap) {
             if (transform.position.y > 0) {
                 transform.position += new Vector3(0, -1, 0) * moveSpeed;
             } else {
-                Fail(step.name);
                 steps = new List<Step>();
+                Fail(step.name);
             }
         }
     }
 
     void HandleGameStart(Step step) {
         if (step.name.Equals("GameStart")) {
+            MapGenerator.EnableAllStars();
+            starCollector.Restart();
             transform.eulerAngles = new Vector3(0, 0, 0);
             transform.position = new Vector3(0, 1, 0);
         }
@@ -96,8 +111,12 @@ public class ReaktoriousMovement : MonoBehaviour {
 
     void HandleReachedDestination(Step step) {
         if (ReachedDestination(step)) {
-            Confirm(step.name);
-            steps.RemoveAt(0);
+            if (boxDetector.OnTopOfSegment) {
+                currentStepIndex++;
+                Confirm(step.name);
+            } else {
+                outOfMap = true;
+            }
         }
     }
 
@@ -134,17 +153,5 @@ class Step {
         this.x = x;
         this.y = y;
         this.forward = forward;
-        outsideMap = OutsideMap();
-    }
-
-    private bool OutsideMap() {
-        MapCoordinationsProvider mcp = new MapCoordinationsProvider();
-
-        foreach (MapCoordinates coordinates in mcp.MapCoordinates()) {
-            Debug.Log(coordinates.x +", "+coordinates.y);
-            if (coordinates.x == (int)Mathf.Floor(x) && coordinates.y == (int)Mathf.Floor(y)) return false;
-        }
-
-        return true;
     }
 }
