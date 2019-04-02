@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import EventEmitter from 'wolfy87-eventemitter';
 
 const Context = React.createContext();
 
 const StateConsumer = Context.Consumer;
+
+const stateUpdater = new EventEmitter();
 
 const StateProvider = ({
   children,
@@ -12,11 +15,15 @@ const StateProvider = ({
 }) => {
   const [state, setState] = useState(initialState);
 
+  stateUpdater.once('change', (keyValueObj) => {
+    setState({ ...state, ...keyValueObj });
+    onChange({ state, keyValueObj });
+  });
+
   const context = {
     state,
     updateState: (keyValueObj) => {
-      setState({ ...state, ...keyValueObj });
-      onChange({ state, keyValueObj });
+      stateUpdater.emitEvent('change', [keyValueObj]);
     },
   };
 
