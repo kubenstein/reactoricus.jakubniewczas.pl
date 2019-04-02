@@ -1,0 +1,53 @@
+@import "../../assets/stylesheets/import";
+
+.finishedFanfare {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    max-width: 435px;
+    height: 100%;
+    max-height: 435px;
+    background: url('../../assets/images/finished-fanfare.png') 50% 50% no-repeat;
+    background-size: contain;
+  }
+}
+
+.failedFanfare {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    max-width: 392px;
+    height: 100%;
+    max-height: 392px;
+    background: url('../../assets/images/failed-fanfare.png') 50% 50% no-repeat;
+    background-size: contain;
+  }
+}
