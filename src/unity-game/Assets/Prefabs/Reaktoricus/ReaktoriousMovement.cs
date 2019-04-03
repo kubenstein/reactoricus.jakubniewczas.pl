@@ -8,7 +8,6 @@ public class ReaktoriousMovement : MonoBehaviour {
     public GameObject boxDetectorGameObject;
     private ReaktoriousStayingOnSegmentsDetection boxDetector;
     private ReaktoricusCollectStar starCollector;
-    private int currentStepIndex = 1; // initial loop running prevention until GameStart is called
     private bool outOfMap;
     private List<Step> steps = new List<Step>();
 
@@ -22,12 +21,9 @@ public class ReaktoriousMovement : MonoBehaviour {
     }
 
     void GameStart() {
-        steps = new List<Step>();
-        outOfMap = false;
-        currentStepIndex = 0;
         float x = 0;
         float y = 0;
-        Vector3 forward = transform.forward;
+        Vector3 forward = new Vector3(0, 0, 1);
         Step step = new Step("GameStart", x, y, forward);
         steps.Add(step);
     }
@@ -60,15 +56,21 @@ public class ReaktoriousMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if (currentStepIndex < steps.Count) {
-            Step currentStep = steps[currentStepIndex];
+        if (steps.Count > 0) {
+            Step currentStep = steps[0];
 
             HandleGameStart(currentStep);
-            if (starCollector.Left > 0) {
-                HandleTurning(currentStep);
-                HandleMovingForward(currentStep);
-                HandleReachedDestination(currentStep);
-                HandleOutside(currentStep);
+            HandleTurning(currentStep);
+            HandleMovingForward(currentStep);
+            HandleFallingOutside(currentStep);
+
+            HandleHittingGround(currentStep);
+            HandleReachedDestination(currentStep);
+            HandleFinishGameSuccess(currentStep);
+
+            if (currentStep.completed) {
+               if (!outOfMap) SyncWith(currentStep);
+                steps.RemoveAt(0);
             }
         }
     }
@@ -76,23 +78,26 @@ public class ReaktoriousMovement : MonoBehaviour {
 
     // private
 
-    void HandleOutside(Step step) {
-        if (outOfMap) {
-            if (transform.position.y > 0) {
-                transform.position += new Vector3(0, -1, 0) * moveSpeed;
-            } else {
-                steps = new List<Step>();
-                Fail(step.name);
-            }
+    void HandleFallingOutside(Step step) {
+        if (outOfMap && transform.position.y > 0) {
+            transform.position += new Vector3(0, -1, 0) * moveSpeed;
+        }
+    }
+
+    void HandleHittingGround(Step step) {
+        if (transform.position.y <= 0) {
+            Fail(step.name);
+            step.completed = true;
         }
     }
 
     void HandleGameStart(Step step) {
         if (step.name.Equals("GameStart")) {
+            outOfMap = false;
             MapGenerator.EnableAllStars();
             starCollector.Restart();
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            transform.position = new Vector3(0, 1, 0);
+            transform.rotation = Quaternion.LookRotation(step.forward);
+            transform.position = new Vector3(step.x, 1, step.y); // y is z
         }
     }
 
@@ -112,15 +117,27 @@ public class ReaktoriousMovement : MonoBehaviour {
     void HandleReachedDestination(Step step) {
         if (ReachedDestination(step)) {
             if (boxDetector.OnTopOfSegment) {
-                currentStepIndex++;
                 Confirm(step.name);
+                step.completed = true;
             } else {
                 outOfMap = true;
             }
         }
     }
 
+    void HandleFinishGameSuccess(Step step) {
+        if (starCollector.Left <= 0) {
+            FinishGame();
+            step.completed = true;
+        }
+    }
+
     // utils
+
+    void SyncWith(Step step) {
+        transform.rotation = Quaternion.LookRotation(step.forward);
+        transform.position = new Vector3(step.x, transform.position.y, step.y); // y is z
+    }
 
     bool ReachedDestination(Step step) {
         return Mathf.Abs(step.x - transform.position.x) < 0.01f
@@ -139,6 +156,13 @@ public class ReaktoriousMovement : MonoBehaviour {
             WebBinding.OnEvent(eventName + "Fail");
         } catch (Exception e) { }
     }
+
+
+    void FinishGame() {
+        try {
+            WebBinding.OnEvent("GameFinished");
+        } catch (Exception e) { }
+    }
 }
 
 class Step {
@@ -146,12 +170,13 @@ class Step {
     public float x;
     public float y;
     public Vector3 forward;
-    public bool outsideMap;
+    public bool completed;
 
     public Step(string name, float x, float y, Vector3 forward) {
         this.name = name;
         this.x = x;
         this.y = y;
         this.forward = forward;
+        completed = false;
     }
 }

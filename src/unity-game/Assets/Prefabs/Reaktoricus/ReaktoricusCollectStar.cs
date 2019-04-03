@@ -14,15 +14,6 @@ public class ReaktoricusCollectStar : MonoBehaviour {
         if (other.tag.Equals("star")) {
             other.gameObject.SetActive(false);
             Left -= 1;
-            if (Left == 0) {
-                FinishGame();
-            }
         }
-    }
-
-    void FinishGame() {
-        try {
-            WebBinding.OnEvent("GameFinished");
-        } catch (Exception e) { }
     }
 }
