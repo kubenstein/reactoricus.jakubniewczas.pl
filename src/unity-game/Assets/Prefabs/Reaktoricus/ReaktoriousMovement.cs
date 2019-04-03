@@ -123,8 +123,8 @@ public class ReaktoriousMovement : MonoBehaviour {
     // utils
 
     bool ReachedDestination(Step step) {
-        return Mathf.Approximately(step.x, transform.position.x)
-            && Mathf.Approximately(step.y, transform.position.z)
+        return Mathf.Abs(step.x - transform.position.x) < 0.01f
+            && Mathf.Abs(step.y - transform.position.z) < 0.01f
             && Vector3.Distance(step.forward, transform.forward) < 0.01f;
     }
 
