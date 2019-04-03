@@ -10,7 +10,12 @@
   },
   "scripts": {
     "dev:frontend": "webpack-dev-server --config ./src/webpack-frontend.config.js --port 3000",
-    "dev:backend": "PORT=8081 DEBUG=true webpack --watch --config ./src/webpack-backend.config.js"
+    "dev:backend": "PORT=8081 DEBUG=true webpack --watch --config ./src/webpack-backend.config.js",
+    "prod:frontend": "NODE_ENV=production webpack --config ./src/webpack-frontend.config.js",
+    "prod:backend": "NODE_ENV=production webpack --config ./src/webpack-backend.config.js",
+    "build": "yarn run prod:frontend && yarn run prod:backend",
+    "heroku-postbuild": "yarn run build",
+    "server": "NODE_ENV=production node ./backend/bundled-server-runner.js"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

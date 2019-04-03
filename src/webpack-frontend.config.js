@@ -97,7 +97,7 @@ module.exports = {
 
   devServer: {
     disableHostCheck: true,
-    contentBase: [pathUtils.join(__dirname, 'unitybuild')],
+    contentBase: [pathUtils.join(__dirname, '..', 'unitybuild')],
     proxy: {
     },
   },
