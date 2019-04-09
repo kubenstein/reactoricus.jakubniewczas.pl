@@ -58,6 +58,7 @@
     "wolfy87-eventemitter": "^5.2.6"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.4",
     "nodemon-webpack-plugin": "^4.0.8",
     "pg": "^7.9.0",

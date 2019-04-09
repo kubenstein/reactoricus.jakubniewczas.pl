@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import MapHeader from 'components/MapHeader';
@@ -10,7 +10,11 @@ import { mapShape } from 'lib/shapes';
 
 import './styles.css';
 
-const Maps = ({ maps }) => {
+const Maps = ({ maps, fetchMaps }) => {
+  useEffect(() => {
+    fetchMaps();
+  }, []);
+
   return (
     <>
       <MapHeader />
@@ -75,6 +79,7 @@ const Maps = ({ maps }) => {
 
 Maps.propTypes = {
   maps: PropTypes.arrayOf(mapShape),
+  fetchMaps: PropTypes.func.isRequired,
 };
 
 export default Maps;
