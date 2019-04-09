@@ -99,6 +99,10 @@ module.exports = {
     disableHostCheck: true,
     contentBase: [pathUtils.join(__dirname, '..', 'unitybuild')],
     proxy: {
+      '/api/**': {
+        target: 'http://localhost:8081',
+        secure: false,
+      },
     },
   },
 

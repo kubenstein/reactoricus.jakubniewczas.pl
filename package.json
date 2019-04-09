@@ -10,7 +10,8 @@
   },
   "scripts": {
     "dev:frontend": "webpack-dev-server --config ./src/webpack-frontend.config.js --port 3000",
-    "dev:backend": "PORT=8081 DEBUG=true webpack --watch --config ./src/webpack-backend.config.js",
+    "dev:backend": "DATABASE_URL=sqlite:./db/data/dev.db PORT=8081 DEBUG=true webpack --watch --config ./src/webpack-backend.config.js",
+    "dev:db:migrate": "DATABASE_URL=sqlite:./db/data/dev.db node ./src/scripts/db-migrate.js",
     "prod:frontend": "NODE_ENV=production webpack --config ./src/webpack-frontend.config.js",
     "prod:backend": "NODE_ENV=production webpack --config ./src/webpack-backend.config.js",
     "build": "yarn run prod:frontend && yarn run prod:backend",
@@ -46,6 +47,7 @@
     "react-dom": "~16.8.x",
     "resolve-url-loader": "^3.0.1",
     "sass-loader": "^7.1.0",
+    "sqlite3": "^4.0.6",
     "store2": "^2.7.1",
     "style-loader": "~0.23.x",
     "uglifyjs-webpack-plugin": "^2.1.1",
@@ -57,6 +59,10 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "nodemon-webpack-plugin": "^4.0.8"
+    "nodemon-webpack-plugin": "^4.0.8",
+    "pg": "^7.9.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.2.13",
+    "umzug": "^2.2.0"
   }
 }
