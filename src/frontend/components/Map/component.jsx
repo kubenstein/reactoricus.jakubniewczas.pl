@@ -8,18 +8,19 @@ import { mapShape } from 'lib/shapes';
 
 import './styles.css';
 
-const Map = ({ isOpen, onClick, map: { createdAt, played } }) => (
+const Map = ({ isOpen, onClick, map: { name, imgUrl } }) => (
   <>
     {isOpen && <GameModal />}
     <div styleName="map">
       <FunctionLink onClick={onClick}>
-        <img alt="map preview" src="https://via.placeholder.com/430x430" />
+        <img alt="map preview" src={imgUrl} />
       </FunctionLink>
       <div styleName="info">
-        <small styleName="createdAt">{`added: ${createdAt}`}</small>
-        <small>
-          <span styleName="heartOn">❤</span>
-          {played}
+        <small styleName="name">
+          map name:
+          <span>
+            {` ${name}`}
+          </span>
         </small>
       </div>
     </div>

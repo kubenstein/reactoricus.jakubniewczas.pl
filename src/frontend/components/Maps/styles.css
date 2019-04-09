@@ -4,9 +4,68 @@
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
+  padding: 0 10px;
 
   strong {
     color: $main;
+  }
+
+  .link {
+    color: $radical-red-light;
+  }
+}
+
+.demo {
+  margin-top: 5px;
+  width: 100%;
+  padding-bottom: 50%;
+  border: 1px solid $grey;
+  background: $grey url('../../assets/images/demo.gif') 50% 50% no-repeat;
+  background-size: cover;
+}
+
+@keyframes fade {
+  0%      { opacity: 0; }
+  11.11%  { opacity: 1; }
+  33.33%  { opacity: 1; }
+  44.44%  { opacity: 0; }
+  100%    { opacity: 0; }
+}
+
+.scenes {
+  position: relative;
+  margin-top: 40px;
+  width: 100%;
+  padding-bottom: 50%;
+  border: 1px solid $grey;
+
+  .scene {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: $black 50% 50% no-repeat;
+    background-size: cover;
+    opacity: 0;
+    animation-name: fade;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+  }
+
+  .scene:nth-child(1) {
+    animation-delay: 0s;
+    background-image: url('../../assets/images/demo1.jpg');
+  }
+
+  .scene:nth-child(2) {
+    animation-delay: 5s;
+    background-image: url('../../assets/images/demo2.jpg');
+  }
+
+  .scene:nth-child(3) {
+    animation-delay: 10s;
+    background-image: url('../../assets/images/demo3.jpg');
   }
 }
 
@@ -38,6 +97,18 @@
 
 .maps {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+
+  @media (max-width: 534px) {
+    justify-content: center;
+  }
+
+  @media (min-width: 535px) {
+    justify-content: space-between;
+  }
+}
+
+.twitter {
+  color: $twitter;
+  font-size: 12px;
 }

@@ -7,7 +7,7 @@ const MapHeader = () => (
       <div styleName="box">
         <h1>Lead the Reactoricus</h1>
         <span>
-          Help a tiny robot collecting stars! Algorithm it through its robotic journey and share joy together!
+          Help a tiny robot collecting badges! Algorithm him through his robotic journey and share joy together!
         </span>
       </div>
       <div styleName="robot" />

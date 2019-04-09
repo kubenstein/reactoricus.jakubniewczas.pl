@@ -24,16 +24,11 @@
   color: $grey-light;
 }
 
-.createdAt {
+.name {
+  font-style: italic;
   font-size: 12px;
-}
 
-.heartOn {
-  position: relative;
-  display: inline-block;
-  top: 2px;
-  margin-right: 4px;
-  line-height: 0px;
-  font-size: 23px;
-  color: $radical-red-light;
+  span {
+    color: $main;
+  }
 }

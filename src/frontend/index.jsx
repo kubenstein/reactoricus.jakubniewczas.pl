@@ -17,21 +17,21 @@ const initialState = {
   maps: [
     {
       id: '1',
-      createdAt: '25.03.2019',
-      played: 24,
-      coordinates: '0,0,0|1,0,1|1,1,0|1,2,0|1,3,0|1,4,0',
+      name: 'The Robotic Sword',
+      imgUrl: '/images/map_robotic_sword.jpg',
+      coordinates: '0,0,0|0,1,0|-1,1,1|1,1,1|0,2,0|0,3,0|0,4,0|0,5,1',
     },
     {
       id: '2',
-      createdAt: '01.01.2019',
-      played: 124,
-      coordinates: '0,0,0',
+      name: 'The Robo Bay',
+      imgUrl: '/images/map_robo_bay.jpg',
+      coordinates: '0,0,0|-1,0,0|-2,0,0|-2,1,1|-1,1,0|-2,-1,0|-2,-2,0|-1,-2,0|0,-2,1',
     },
     {
       id: '3',
-      createdAt: '01.01.2019',
-      played: 124,
-      coordinates: '0,0,0|1,0,1|1,1,0|1,2,0|2,2,0',
+      name: 'The Stairs of Steal',
+      imgUrl: '/images/map_stairs_of_steal.jpg',
+      coordinates: '0,0,0|0,1,0|-1,1,1|-1,2,0|-2,2,1|-2,3,0|-3,3,0|-3,4,1',
     },
   ],
 };

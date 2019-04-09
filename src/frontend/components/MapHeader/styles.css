@@ -17,26 +17,36 @@
 .wrapper {
   height: 400px;
   width: 100%;
-  background-color: $black;
   margin-bottom: 40px;
+  background: $black url('../../assets/images/header-background.jpg') 50% 50% no-repeat;
+  background-size: cover;
 }
 
 .box-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-around;
   width: 100%;
   max-width: 1024px;
   height: 100%;
   margin: 0 auto;
+  padding: 0 10px;
+
+  @media (min-width: 535px) {
+    justify-content: space-around;
+  }
+
+  @media (max-width: 534px) {
+    flex-direction: column;
+  }
 }
 
 .box {
   max-width: 540px;
-  margin: 0 10px;
+  margin: 10px;
   padding: 20px;
   border-radius: 10px;
   background-color: $white;
+  box-shadow: 2px 5px 19px 0px rgba(0, 0, 0, 0.3);
 
   h1 {
     font-size: 50px;
@@ -55,8 +65,16 @@
 }
 
 .robot {
-  flex: 0 0 240px;
   height: 302px;
   background: url('../../assets/images/reactoricus-jumbo.png') 50% 50% no-repeat;
+  background-size: contain;
   animation: move 5s ease-in-out infinite;
+
+  @media (max-width: 534px) {
+    width: 90px;
+  }
+
+  @media (min-width: 535px) {
+    flex: 0 0 240px;
+  }
 }
