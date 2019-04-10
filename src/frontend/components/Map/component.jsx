@@ -8,7 +8,7 @@ import { mapShape } from 'lib/shapes';
 
 import './styles.css';
 
-const Map = ({ isOpen, onClick, map: { name, imgUrl } }) => (
+const Map = ({ isOpen, onClick, map: { name, imgUrl, finishedCount } }) => (
   <>
     {isOpen && <GameModal />}
     <div styleName="map">
@@ -21,6 +21,9 @@ const Map = ({ isOpen, onClick, map: { name, imgUrl } }) => (
           <span>
             {` ${name}`}
           </span>
+        </small>
+        <small styleName="counter" title="Count of Finished Runs">
+          {`✔ ${finishedCount}`}
         </small>
       </div>
     </div>

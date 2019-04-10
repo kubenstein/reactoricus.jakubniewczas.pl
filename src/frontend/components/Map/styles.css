@@ -29,6 +29,16 @@
   font-size: 12px;
 
   span {
+    display: inline-block;
     color: $main;
   }
+}
+
+.counter {
+  display: block;
+  margin-left: 5px;
+  font-style: italic;
+  font-size: 12px;
+  color: $green;
+  white-space: nowrap;
 }
