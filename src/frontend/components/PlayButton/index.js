@@ -17,15 +17,17 @@ const mapStateToProps = ({ openedMapId, algorithms }, _props, updateState) => ({
         updateState({ currentlyPlayedStepId: step.id });
         receiveConfirmation(step.type, () => next());
         receiveFail(step.type, () => updateState({ gameStatus: 'failed' }));
-        receiveGameEnds(() => {
-          updateMapStats(openedMapId);
-          updateState({ gameStatus: 'finished' });
-        });
 
         sendStep(step.type);
       });
     };
+
     receiveGameStart(startGame);
+    receiveGameEnds(() => {
+      updateMapStats(openedMapId);
+      updateState({ gameStatus: 'finished' });
+    });
+
     sendStep('GameStart');
   },
 });
