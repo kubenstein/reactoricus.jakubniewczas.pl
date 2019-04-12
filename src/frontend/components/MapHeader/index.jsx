@@ -1,8 +1,11 @@
 import React from 'react';
+import GHRibbon from './GHRibbon';
+
 import './styles.css';
 
 const MapHeader = () => (
   <div styleName="wrapper">
+    <GHRibbon />
     <div styleName="box-wrapper">
       <div styleName="box">
         <h1>Lead the Reactoricus</h1>
