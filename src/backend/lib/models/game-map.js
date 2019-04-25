@@ -7,6 +7,7 @@ const GameMap = db.define('map', {
   name: Sequelize.STRING,
   imgUrl: Sequelize.STRING,
   finishedCount: Sequelize.NUMBER,
+  approved: Sequelize.BOOLEAN,
 });
 
 export default GameMap;

@@ -15,4 +15,5 @@ export const mapShape = PropTypes.shape({
   name: PropTypes.string.isRequired,
   coordinates: PropTypes.string.isRequired,
   imgUrl: PropTypes.string.isRequired,
+  approved: PropTypes.bool,
 });
