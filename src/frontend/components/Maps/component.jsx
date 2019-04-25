@@ -10,7 +10,7 @@ import { mapShape } from 'lib/shapes';
 
 import './styles.css';
 
-const Maps = ({ maps, fetchMaps }) => {
+const Maps = ({ mapsApproved, mapsNotYetApproved, fetchMaps }) => {
   useEffect(() => {
     fetchMaps();
   }, []);
@@ -39,10 +39,21 @@ const Maps = ({ maps, fetchMaps }) => {
 
         <span styleName="separator">Choose a map you want to play on!</span>
         <div styleName="maps">
-          {maps.map(map => (
+          {mapsApproved.map(map => (
             <Map key={map.id} map={map} />
           ))}
         </div>
+
+        {mapsNotYetApproved.length > 0 && (
+          <>
+            <span styleName="separator">Maps made by the community that wait for approval</span>
+            <div styleName="maps">
+              {mapsNotYetApproved.map(map => (
+                <Map key={map.id} map={map} />
+              ))}
+            </div>
+          </>
+        )}
         <span styleName="separator">A bit about The Game</span>
         <p>
           The game/website is an ReactJs app. The heart of the app is
@@ -78,7 +89,8 @@ const Maps = ({ maps, fetchMaps }) => {
 };
 
 Maps.propTypes = {
-  maps: PropTypes.arrayOf(mapShape),
+  mapsApproved: PropTypes.arrayOf(mapShape),
+  mapsNotYetApproved: PropTypes.arrayOf(mapShape),
   fetchMaps: PropTypes.func.isRequired,
 };
 
