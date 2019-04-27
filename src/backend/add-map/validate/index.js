@@ -1,13 +1,4 @@
-class ValidationResult {
-  constructor() {
-    this.errors = [];
-  }
-
-  addError = message => this.errors.push(message);
-
-  isValid = () => this.errors.length === 0;
-}
-
+import ValidationResult from './validation-result';
 
 export default function validate({ coordinates = '', name = '' }) {
   const result = new ValidationResult();
