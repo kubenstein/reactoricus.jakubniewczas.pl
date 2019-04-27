@@ -11,7 +11,7 @@ export const stepShape = PropTypes.shape({
 });
 
 export const mapShape = PropTypes.shape({
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   coordinates: PropTypes.string.isRequired,
   imgUrl: PropTypes.string.isRequired,
