@@ -95,9 +95,16 @@
   }
 }
 
+.addMapButton {
+  float: right;
+  margin: 0 0 24px;
+  display: inline-block;
+}
+
 .maps {
   display: flex;
   flex-wrap: wrap;
+  clear: both;
 
   @media (max-width: 534px) {
     justify-content: center;

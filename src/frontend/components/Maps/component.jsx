@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import MapHeader from 'components/MapHeader';
+import AddMapButton from 'components/AddMapButton';
 import Map from 'components/Map';
 import Footer from 'components/Footer';
 import FunctionLink from 'components/FunctionLink';
@@ -38,6 +39,7 @@ const Maps = ({ mapsApproved, mapsNotYetApproved, fetchMaps }) => {
         <div styleName="demo" />
 
         <span styleName="separator">Choose a map you want to play on!</span>
+        <AddMapButton styleName="addMapButton" />
         <div styleName="maps">
           {mapsApproved.map(map => (
             <Map key={map.id} map={map} />
