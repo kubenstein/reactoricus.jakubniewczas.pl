@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MapHeader from 'components/MapHeader';
 import AddMapButton from 'components/AddMapButton';
 import Map from 'components/Map';
+import MapEditorModal from 'components/MapEditorModal';
 import Footer from 'components/Footer';
 import FunctionLink from 'components/FunctionLink';
 
@@ -11,13 +12,14 @@ import { mapShape } from 'lib/shapes';
 
 import './styles.css';
 
-const Maps = ({ mapsApproved, mapsNotYetApproved, fetchMaps }) => {
+const Maps = ({ isMapEditorOpened, mapsApproved, mapsNotYetApproved, fetchMaps }) => {
   useEffect(() => {
     fetchMaps();
   }, []);
 
   return (
     <>
+      {isMapEditorOpened && <MapEditorModal />}
       <MapHeader />
       <div styleName="wrapper">
         <p>
@@ -91,6 +93,7 @@ const Maps = ({ mapsApproved, mapsNotYetApproved, fetchMaps }) => {
 };
 
 Maps.propTypes = {
+  isMapEditorOpened: PropTypes.bool,
   mapsApproved: PropTypes.arrayOf(mapShape),
   mapsNotYetApproved: PropTypes.arrayOf(mapShape),
   fetchMaps: PropTypes.func.isRequired,
