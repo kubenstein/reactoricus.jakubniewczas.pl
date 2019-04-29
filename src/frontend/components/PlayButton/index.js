@@ -1,12 +1,16 @@
 import axios from 'axios';
 import connect from 'lib/appState/connect';
+import populateMapList from 'lib/populate-map-list';
 import { sendStep, receiveConfirmation, receiveFail, receiveGameEnds, receiveGameStart } from 'lib/unity-player-binding';
 
 import { execute } from './algorithm-execution-utils';
 
 import Component from './component';
 
-const updateMapStats = mapId => axios.patch(`/api/maps/${mapId}`);
+const updateMapStats = ({ mapId, updateState }) => {
+  axios.patch(`/api/maps/${mapId}`);
+  populateMapList({ updateState });
+};
 
 const mapStateToProps = ({ openedMapId, algorithms }, _props, updateState) => ({
   onClick: () => {
@@ -24,7 +28,7 @@ const mapStateToProps = ({ openedMapId, algorithms }, _props, updateState) => ({
 
     receiveGameStart(startGame);
     receiveGameEnds(() => {
-      updateMapStats(openedMapId);
+      updateMapStats({ mapId: openedMapId, updateState });
       updateState({ gameStatus: 'finished' });
     });
 

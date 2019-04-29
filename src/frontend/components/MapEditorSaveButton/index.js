@@ -1,5 +1,6 @@
 import axios from 'axios';
 import connect from 'lib/appState/connect';
+import populateMapList from 'lib/populate-map-list';
 
 import Component from './component';
 
@@ -19,11 +20,14 @@ const mapStateToProps = ({ newMapName, newMapCoordinates }, _props, updateState)
   onClick: () => {
     const coordinates = serializeCoordinates(newMapCoordinates);
     postMap({ name: newMapName, coordinates })
-      .then(() => updateState({
-        newMapCoordinates: {},
-        newMapName: '',
-        mapEditorOpened: false,
-      }))
+      .then(() => {
+        updateState({
+          newMapCoordinates: {},
+          newMapName: '',
+          mapEditorOpened: false,
+        });
+        populateMapList({ updateState });
+      })
       .catch(({ response: { data } }) => alert(data.join('\n\n')));
   },
 });
