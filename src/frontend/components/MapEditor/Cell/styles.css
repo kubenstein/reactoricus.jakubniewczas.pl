@@ -1,0 +1,63 @@
+@import "../../../assets/stylesheets/import";
+
+._cell {
+  display: block;
+  float: left;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border: 0.5px solid lighten($tile-green, 50%);
+}
+
+.cell-empty {
+  @extend ._cell;
+  background-color: lighten($tile-green, 30%);
+
+  &:hover {
+    background-color: lighten($tile-green, 50%);
+  }
+}
+
+.cell-box {
+  @extend ._cell;
+
+  background-color: $white;
+  border: 4px solid $dark;
+
+  &:hover {
+    border-color: lighten($dark, 10%);
+  }
+}
+
+.cell-badge {
+  @extend .cell-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $dark;
+  }
+}
+
+.cell-start {
+  @extend .cell-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-color: $main;
+  }
+}

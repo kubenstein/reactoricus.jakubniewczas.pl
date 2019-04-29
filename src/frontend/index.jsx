@@ -15,6 +15,7 @@ const onChange = ({ keyValueObj: { algorithms } }) => {
 const initialState = {
   algorithms: localStorage.get('algorithms') || {},
   maps: [],
+  newMapCoordinates: {},
 };
 
 ReactDOM.render(
