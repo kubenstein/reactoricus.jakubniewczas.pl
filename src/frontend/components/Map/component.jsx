@@ -13,7 +13,7 @@ const Map = ({ isOpen, onClick, map: { name, imgUrl, finishedCount } }) => (
     {isOpen && <GameModal />}
     <div styleName="map">
       <FunctionLink onClick={onClick}>
-        <img alt="map preview" src={imgUrl} />
+        <img alt="map preview" src={imgUrl || '/images/map_unknown.jpg'} />
       </FunctionLink>
       <div styleName="info">
         <small styleName="name">
