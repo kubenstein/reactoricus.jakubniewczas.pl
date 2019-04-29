@@ -2,7 +2,11 @@ import Sequelize from 'sequelize';
 import db from 'lib/db-connection';
 
 const GameMap = db.define('map', {
-  id: { type: Sequelize.NUMBER, primaryKey: true },
+  id: {
+    type: Sequelize.NUMBER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
   coordinates: Sequelize.STRING,
   name: Sequelize.STRING,
   imgUrl: Sequelize.STRING,
