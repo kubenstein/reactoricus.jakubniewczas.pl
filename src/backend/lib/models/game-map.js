@@ -9,7 +9,7 @@ const GameMap = db.define('map', {
   },
   coordinates: Sequelize.STRING,
   name: Sequelize.STRING,
-  imgUrl: Sequelize.STRING,
+  imgUrl: Sequelize.TEXT,
   finishedCount: Sequelize.NUMBER,
   approved: Sequelize.BOOLEAN,
 });
