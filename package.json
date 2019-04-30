@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev:frontend": "webpack-dev-server --config ./src/webpack-frontend.config.js --port 3000",
-    "dev:backend": "DATABASE_URL=sqlite:./db/data/dev.db PORT=8081 FRONTEND_URL=http://localhost:3000 DEBUG=true webpack --watch --config ./src/webpack-backend.config.js",
+    "dev:backend": "DATABASE_URL=sqlite:./db/data/dev.db PORT=8081 DEBUG=true webpack --watch --config ./src/webpack-backend.config.js",
     "dev:db:migrate": "DATABASE_URL=sqlite:./db/data/dev.db node ./src/scripts/db-migrate.js",
     "prod:frontend": "NODE_ENV=production webpack --config ./src/webpack-frontend.config.js",
     "prod:backend": "NODE_ENV=production webpack --config ./src/webpack-backend.config.js",
@@ -65,7 +65,6 @@
     "nodemon-webpack-plugin": "^4.0.8",
     "pg": "^7.9.0",
     "pg-hstore": "^2.3.2",
-    "puppeteer": "^1.15.0",
     "sequelize": "^5.3.0",
     "umzug": "^2.2.0"
   }
