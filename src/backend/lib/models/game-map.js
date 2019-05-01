@@ -10,6 +10,7 @@ const GameMap = db.define('map', {
   coordinates: Sequelize.STRING,
   name: Sequelize.STRING,
   imgUrl: Sequelize.TEXT,
+  cloudinaryPublicId: Sequelize.TEXT,
   finishedCount: Sequelize.NUMBER,
   approved: Sequelize.BOOLEAN,
 });
