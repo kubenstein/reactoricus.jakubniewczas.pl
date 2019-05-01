@@ -28,6 +28,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-react-css-modules": "^5.2.3",
+    "blueimp-canvas-to-blob": "^3.14.0",
     "css-loader": "~2.x.x",
     "es6-promise": "~4.x.x",
     "eslint": "^5.13.0",

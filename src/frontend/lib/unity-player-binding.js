@@ -12,11 +12,13 @@ export const sendStep = (stepName) => {
 // binding with unityGame callback
 // this method will be invoked by unityPlayer
 window.UnityOnEvent = (eventName) => {
-  if (!window.unityGameEmitter) {
-    window.unityGameEmitter = new EventEmitter();
-  }
-
+  if (!window.unityGameEmitter) window.unityGameEmitter = new EventEmitter();
   window.unityGameEmitter.emitEvent(eventName);
+};
+
+export const receiveGameReady = (callback) => {
+  if (!window.unityGameEmitter) window.unityGameEmitter = new EventEmitter();
+  window.unityGameEmitter.once('GameReady', callback);
 };
 
 export const receiveGameStart = (callback) => {
