@@ -6,6 +6,7 @@ public class MapGenerator : MonoBehaviour {
     public Transform[] segmentsPrefabs;
     public Transform starPrefab;
     public Transform playerPrefab;
+    private bool gameReadyNotificationSent = false;
     private static List<GameObject> stars = new List<GameObject>();
 
     public static void EnableAllStars() {
@@ -22,6 +23,13 @@ public class MapGenerator : MonoBehaviour {
         }
 
         CreatePlayer();
+    }
+
+    void Update() {
+        if (!gameReadyNotificationSent) {
+            WebBinding.OnEvent("GameReady");
+            gameReadyNotificationSent = true;
+        }
     }
 
     private
