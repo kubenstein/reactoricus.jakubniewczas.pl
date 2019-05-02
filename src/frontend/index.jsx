@@ -1,4 +1,6 @@
 import 'es6-promise/auto';
+import 'blueimp-canvas-to-blob';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import localStorage from 'store2';
@@ -15,6 +17,7 @@ const onChange = ({ keyValueObj: { algorithms } }) => {
 const initialState = {
   algorithms: localStorage.get('algorithms') || {},
   maps: [],
+  newMapCoordinates: {},
 };
 
 ReactDOM.render(

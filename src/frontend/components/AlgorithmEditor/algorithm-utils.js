@@ -1,6 +1,5 @@
 import uuid from 'uuid/v4';
-
-const deepCopy = obj => JSON.parse(JSON.stringify(obj));
+import deepCopy from 'lib/deep-copy';
 
 const findStep = (algorithm, stepId) => {
   for (let i = 0; i < algorithm.length; i += 1) {

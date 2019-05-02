@@ -13,7 +13,16 @@ The Unity part is a well made, fully dynamic, micro environment for the Robot to
 
 As I’m fluent and comfortable with web technologies I wanted to learn something new and that's why for this project I picked webGL Unity. It’s just cool, isn’t it!
 
+### Map Editor
+
+Recently I added map editor so the community can create its own maps. The most difficult part was to generate map preview. I started with puppeteer script that run the game on server and take a screenshot, however headless chrome does not render webgl unfortunately…
+The workaround solution is to capture screenshot of the game canvas on first game run and send it to backend. So the whole preview generating logic was moved from backend to frontend.
+Later on the backend uploads map preview to Cloudinary. Cloudinary is also responsible to crop and resize previews.
+
+![Map Editor demo](https://github.com/kubenstein/reactoricus/blob/master/src/frontend/assets/images/map-editor-readme-demo.gif?raw=true)
+
 ### Development
+To have working map previews you have to have `CLOUDINARY_URL` env set pointing at cloudinary account.
 
 ```
 npm run dev:db:migrate

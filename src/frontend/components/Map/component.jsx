@@ -8,12 +8,19 @@ import { mapShape } from 'lib/shapes';
 
 import './styles.css';
 
-const Map = ({ isOpen, onClick, map: { name, imgUrl, finishedCount } }) => (
+const Map = ({ isOpen, onClick, map: { name, cloudinaryPublicId, finishedCount } }) => (
   <>
     {isOpen && <GameModal />}
     <div styleName="map">
       <FunctionLink onClick={onClick}>
-        <img alt="map preview" src={imgUrl} />
+        <img
+          alt="map preview"
+          src={
+            cloudinaryPublicId
+              ? `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/w_460,h_360,c_crop/${cloudinaryPublicId}`
+              : '/images/map_unknown.jpg'
+          }
+        />
       </FunctionLink>
       <div styleName="info">
         <small styleName="name">

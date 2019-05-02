@@ -9,6 +9,7 @@ const env = process.env.NODE_ENV;
 const srcDir = __dirname;
 const rootDir = `${srcDir}/../`;
 const frontendDir = `${srcDir}/frontend/`;
+const cloudinaryCloudName = (process.env.CLOUDINARY_URL || '').split('@')[1];
 
 var path;
 if (env === 'production') {
@@ -112,14 +113,13 @@ module.exports = {
       new OptimizeCSSAssetsPlugin({}),
     ] : [],
   },
-  plugins: (env === 'production') ? [
-    new MiniCssExtractPlugin({ filename: 'web.bundle.css' }),
+  plugins: [
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
+        CLOUDINARY_CLOUD_NAME: JSON.stringify(cloudinaryCloudName),
       },
     }),
-  ] : [
     new MiniCssExtractPlugin({ filename: 'web.bundle.css' }),
   ],
 };
