@@ -14,6 +14,6 @@ export const mapShape = PropTypes.shape({
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   coordinates: PropTypes.string.isRequired,
-  imgUrl: PropTypes.string,
+  cloudinaryPublicId: PropTypes.string,
   approved: PropTypes.bool,
 });
