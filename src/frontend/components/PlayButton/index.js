@@ -8,8 +8,8 @@ import { execute } from './algorithm-execution-utils';
 import Component from './component';
 
 const updateMapStats = ({ mapId, updateState }) => {
-  axios.patch(`/api/maps/${mapId}`);
-  populateMapList({ updateState });
+  axios.patch(`/api/maps/${mapId}`)
+    .then(() => populateMapList({ updateState }));
 };
 
 const mapStateToProps = ({ openedMapId, algorithms }, _props, updateState) => ({
