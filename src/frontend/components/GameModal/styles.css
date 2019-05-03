@@ -48,7 +48,7 @@
 }
 
 .playButton,
-.resetButton {
+.clearButton {
   position: relative;
   height: 0;
   top: 20px;

@@ -5,17 +5,17 @@ import FunctionLink from 'components/FunctionLink';
 
 import './styles.css';
 
-const PlayButton = ({ onClick, className }) => (
+const ClearButton = ({ onClick, className }) => (
   <div styleName="wrapper" className={className}>
-    <FunctionLink styleName="resetButton" onClick={onClick}>
-      reset
+    <FunctionLink styleName="clearButton" onClick={onClick}>
+      clear
     </FunctionLink>
   </div>
 );
 
-PlayButton.propTypes = {
+ClearButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
 };
 
-export default PlayButton;
+export default ClearButton;
