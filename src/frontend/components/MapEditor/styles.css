@@ -15,6 +15,12 @@
   border: 1px solid $tile-green;
 }
 
+.info {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
 .grid {
   width: 1000px;
   height: 1000px;
