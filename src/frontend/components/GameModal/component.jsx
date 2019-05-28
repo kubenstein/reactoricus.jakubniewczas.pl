@@ -16,7 +16,7 @@ const GameModal = ({ onClose }) => {
     return () => {
       document.body.classList.remove('gameModalOpened');
     };
-  });
+  }, []);
 
   return (
     <div styleName="gameModal" id="gameModal">
