@@ -13,7 +13,7 @@ const MapEditorModal = ({ onClose }) => {
     return () => {
       document.body.classList.remove('mapEditorOpened');
     };
-  });
+  }, []);
 
   return (
     <div styleName="mapEditorModal" id="gameModal">
