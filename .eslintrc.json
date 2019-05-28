@@ -4,6 +4,7 @@
   "plugins": [
     "babel",
     "react",
+    "react-hooks",
     "jsx-a11y",
     "import",
     "mocha"
@@ -64,6 +65,8 @@
     "react/no-typos": ["off"],
     "react/no-unused-prop-types": ["error", { "skipShapeProps": true }],
     "react/require-default-props": ["off"],
+    "react-hooks/rules-of-hooks": ["error"],
+    "react-hooks/exhaustive-deps": ["warn"],
     "import/prefer-default-export": ["off"],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
