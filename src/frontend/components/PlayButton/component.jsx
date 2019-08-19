@@ -8,7 +8,7 @@ import './styles.css';
 const PlayButton = ({ onClick, className }) => (
   <div styleName="wrapper" className={className}>
     <FunctionLink styleName="playButton" onClick={onClick}>
-      play!
+      Play!
     </FunctionLink>
   </div>
 );
