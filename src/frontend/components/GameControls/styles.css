@@ -6,21 +6,31 @@
   max-width: 900px;
 }
 
-.playButton {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 70px;
+.button {
+  display: inline-block;
   margin: 5px;
   padding: 5px;
   border-radius: 4px;
-  background-color: $green;
   text-align: center;
   color: $white;
   cursor: pointer;
   transition: background-color 0.5s;
+}
 
+.playButton {
+  composes: button;
+
+  background-color: $green;
   &:hover {
     background-color: lighten($green, 10%);
+  }
+}
+
+.resetButton {
+  composes: button;
+
+  background-color: $grey-light;
+  &:hover {
+    background-color: darken($grey-light, 10%);
   }
 }

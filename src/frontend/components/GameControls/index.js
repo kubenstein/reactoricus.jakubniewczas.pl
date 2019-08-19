@@ -13,7 +13,7 @@ const updateMapStats = ({ mapId, updateState }) => {
 };
 
 const mapStateToProps = ({ openedMapId, algorithms }, _props, updateState) => ({
-  onClick: () => {
+  onPlayClick: () => {
     const algorithm = algorithms[openedMapId];
     const startGame = () => {
       updateState({ gameStatus: 'start' });
@@ -32,6 +32,9 @@ const mapStateToProps = ({ openedMapId, algorithms }, _props, updateState) => ({
       updateState({ gameStatus: 'finished' });
     });
 
+    sendStep('GameStart');
+  },
+  onResetClick: () => {
     sendStep('GameStart');
   },
 });

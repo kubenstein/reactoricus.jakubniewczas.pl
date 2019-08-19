@@ -5,7 +5,7 @@ import FunctionLink from 'components/FunctionLink';
 import GameResultFanfare from 'components/GameResultFanfare';
 import AlgorithmEditor from 'components/AlgorithmEditor';
 import UnityPlayer from 'components/UnityPlayer';
-import PlayButton from 'components/PlayButton';
+import GameControls from 'components/GameControls';
 import ClearButton from 'components/ClearButton';
 
 import './styles.css';
@@ -23,7 +23,7 @@ const GameModal = ({ onClose }) => {
       <FunctionLink styleName="close" onClick={onClose}>✖</FunctionLink>
       <GameResultFanfare />
       <UnityPlayer styleName="unityPlayer" />
-      <PlayButton styleName="playButton" />
+      <GameControls styleName="gameControls" />
       <ClearButton styleName="clearButton" />
       <AlgorithmEditor styleName="algorithmEditor" />
     </div>
