@@ -8,9 +8,9 @@
 
 .clearButton {
   position: absolute;
+  display: inline;
   top: 0;
   right: 0;
-  width: 70px;
   margin: 5px;
   padding: 5px;
   border-radius: 4px;

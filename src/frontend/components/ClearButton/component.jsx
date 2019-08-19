@@ -8,7 +8,7 @@ import './styles.css';
 const ClearButton = ({ onClick, className }) => (
   <div styleName="wrapper" className={className}>
     <FunctionLink styleName="clearButton" onClick={onClick}>
-      clear
+      Clear Algorythm
     </FunctionLink>
   </div>
 );

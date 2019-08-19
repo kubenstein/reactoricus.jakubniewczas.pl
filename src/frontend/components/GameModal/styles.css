@@ -47,7 +47,7 @@
   border: 1px solid $grey;
 }
 
-.playButton,
+.gameControls,
 .clearButton {
   position: relative;
   height: 0;
