@@ -1,8 +1,8 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "extends": "airbnb",
   "plugins": [
-    "babel",
+    "@typescript-eslint",
     "react",
     "react-hooks",
     "jsx-a11y",
@@ -16,6 +16,12 @@
           "src",
           "src/frontend",
           "src/backend"
+        ],
+        "extensions": [
+          ".ts",
+          ".tsx",
+          ".js",
+          ".jsx"
         ]
       }
     }
@@ -31,15 +37,8 @@
   "rules": {
     "camelcase": ["off"],
     "no-alert": ["off"],
-    "babel/camelcase": ["error", { "properties": "never" }],
     "no-unused-expressions": ["off"],
-    "babel/no-unused-expressions": ["error", {
-      "allowShortCircuit": false,
-      "allowTernary": false,
-      "allowTaggedTemplates": false
-    }],
     "quotes": ["off"],
-    "babel/quotes": ["error", "single", { "avoidEscape": true }],
     "prefer-destructuring": ["error", { "object": true, "array": false }],
     "object-curly-newline": ["error", { "consistent": true }],
     "function-paren-newline": ["off"],
@@ -60,7 +59,8 @@
     "mocha/no-sibling-hooks": ["error"],
     "mocha/no-skipped-tests": ["error"],
     "mocha/no-top-level-hooks": ["error"],
-    "no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+    "no-unused-vars": ["off"],
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
     "multiline-comment-style": ["off"],
     "react/no-typos": ["off"],
     "react/no-unused-prop-types": ["error", { "skipShapeProps": true }],
@@ -68,6 +68,7 @@
     "react-hooks/rules-of-hooks": ["error"],
     "react-hooks/exhaustive-deps": ["warn"],
     "import/prefer-default-export": ["off"],
+    "import/no-cycle": ["off"],
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }
