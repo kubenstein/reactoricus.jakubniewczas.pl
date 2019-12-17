@@ -15,7 +15,7 @@
     "prod:frontend": "NODE_ENV=production webpack --config ./src/webpack-frontend.config.js",
     "prod:backend": "NODE_ENV=production webpack --config ./src/webpack-backend.config.js",
     "prod:db:migrate": "node ./src/scripts/db-migrate.js",
-    "build": "yarn run prod:frontend && yarn run prod:backend",
+    "build": "yarn run lint && yarn run prod:frontend && yarn run prod:backend",
     "heroku-postbuild": "yarn run build",
     "server": "NODE_ENV=production node ./backend/bundled-server-runner.js"
   },
