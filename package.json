@@ -5,8 +5,7 @@
   "description": "React / Unity3d game",
   "license": "MIT",
   "engines": {
-    "node": "11.5.0",
-    "yarn": "1.13.0"
+    "node": "11.5.0"
   },
   "scripts": {
     "dev:frontend": "webpack-dev-server --config ./src/webpack-frontend.config.js --port 3000",
