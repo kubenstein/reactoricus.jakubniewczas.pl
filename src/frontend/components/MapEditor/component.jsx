@@ -6,7 +6,7 @@ import Cell from './Cell';
 import './styles.css';
 
 const MapEditor = ({ initStartingPoint, newMapName, onNewMapNameChange }) => {
-  useEffect(() => initStartingPoint(), []);
+  useEffect(() => initStartingPoint(), [initStartingPoint]);
 
   return (
     <>

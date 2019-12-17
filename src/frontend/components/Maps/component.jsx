@@ -15,7 +15,7 @@ import './styles.css';
 const Maps = ({ isMapEditorOpened, mapsApproved, mapsNotYetApproved, fetchMaps }) => {
   useEffect(() => {
     fetchMaps();
-  }, []);
+  }, [fetchMaps]);
 
   return (
     <>

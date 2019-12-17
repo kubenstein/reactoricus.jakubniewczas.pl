@@ -7,7 +7,7 @@ const UnityPlayer = ({ initializeGame, unloadGame, className }) => {
   useEffect(() => {
     initializeGame({ nodeId: 'gameContainer' });
     return () => unloadGame();
-  }, []);
+  }, [initializeGame, unloadGame]);
 
   return (
     <div id="gameContainer" styleName="gameContainer" className={className} />
