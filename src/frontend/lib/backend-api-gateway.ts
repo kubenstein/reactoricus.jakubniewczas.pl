@@ -1,7 +1,8 @@
 import axios from 'axios';
+import IGameMap from '../@types/gameMap';
 
 export interface IApiMapsResponse {
-  maps: any[],
+  maps: IGameMap[],
 }
 
 const apiGetMaps = () : Promise<IApiMapsResponse> => (
