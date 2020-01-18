@@ -1,1 +1,2 @@
-export type IUpdateState = (keyValueObj: { [key: string]: any }) => void
+export type IStateKeyValue = { [key: string]: string | object | null }
+export type IUpdateState = (keyValueObj: IStateKeyValue) => void
