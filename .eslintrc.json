@@ -27,17 +27,14 @@
     }
   },
   "env": {
-    "browser": true,
-    "mocha": true
-  },
-  "globals": {
-    "chai": true,
-    "expect": true
+    "browser": true
   },
   "rules": {
     "camelcase": ["off"],
     "no-alert": ["off"],
     "no-unused-expressions": ["off"],
+    "no-unused-vars": ["off"],
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
     "quotes": ["off"],
     "prefer-destructuring": ["error", { "object": true, "array": false }],
     "object-curly-newline": ["error", { "consistent": true }],
@@ -51,16 +48,6 @@
       "ignoreTemplateLiterals": true
     }],
     "class-methods-use-this": ["off"],
-    "mocha/max-top-level-suites": ["error"],
-    "mocha/no-exclusive-tests": ["error"],
-    "mocha/no-global-tests": ["error"],
-    "mocha/no-identical-title": ["error"],
-    "mocha/no-nested-tests": ["error"],
-    "mocha/no-sibling-hooks": ["error"],
-    "mocha/no-skipped-tests": ["error"],
-    "mocha/no-top-level-hooks": ["error"],
-    "no-unused-vars": ["off"],
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
     "multiline-comment-style": ["off"],
     "react/no-typos": ["off"],
     "react/no-unused-prop-types": ["error", { "skipShapeProps": true }],
